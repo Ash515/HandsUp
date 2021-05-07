@@ -4,6 +4,7 @@
 <style>
 * {
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Create two equal columns that floats next to each other */
@@ -18,7 +19,7 @@
   width:750px;
   padding: 10px;
   height:820px; /* Should be removed. Only for demonstration */
-  background-image: url("./images/bgimg.jpg");
+  background-image: url("/static/images/adminsignup.jpg");
   background-size:cover;
 }
 .cancelbtn{
@@ -105,6 +106,7 @@ span.psw {
 #SU{
 	padding-top: 10px;
 }
+
 .avatar{
 	border-radius: 50%;
 }
@@ -119,9 +121,9 @@ span.psw {
   <div class="column" style="background-color:#6345e69c;">
   	
 
-<form  method="post" action="/login">
+<form  method="post" action="/adminlogin">
   <div class="imgcontainer">
-   <h2><font color="white" size="16px">Admin-Log in </font></h2>
+   <h2><font color="white" >Admin Log in </font></h2>
   </div>
 
   <div class="container">
@@ -131,7 +133,7 @@ span.psw {
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="admin_psw" required>
         
-    <button type="submit"><a href="#" style="text-decoration: none;color:white">Sign In</a></button>
+    <button type="submit" style="text-decoration: none;color:white">Sign In</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>

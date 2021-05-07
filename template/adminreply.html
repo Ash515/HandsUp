@@ -83,18 +83,18 @@ color: blue;
         </style>
     </head>
     <body>
-        <h3>Replying</h3>
+        <h3>Replying to {session.admin_email}</h3>
         <div class="main">
               
         
         <form>
             <div class="repsent">
-                       
-                <input type="text" id="repsentmonth"><input type="text" id="repsentyear">  <input type="text" id="repsentdate"><br>
-                <input type="text" id="repsentsub"><br>
-               <textarea id="repsentcont"></textarea><br>
+                <form action="/sending" method="POST">      
+                <input type="text" placeholder="Date" id="repsentmonth"><input type="text" placeholder="Month" id="repsentyear">  <input type="text" placeholder="Year" id="repsentdate"><br>
+                <input type="text" placeholder="Subject" id="repsentsub"><br>
+               <textarea id="repsentcont" placeholder="Message"></textarea><br>
                <input type="submit" value="Send" id="sending">
-         
+               </form>
          </div>
         </form></div>
 

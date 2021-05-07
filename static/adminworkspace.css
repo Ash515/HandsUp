@@ -1,5 +1,8 @@
 body{
     background-color: rgba(128, 0, 0, 0.664);
+    
+    overflow-x: hidden; 
+
 }
 .list{
     background-color: white;
@@ -42,11 +45,12 @@ ul{
     background-color: rgba(0,0,0,0.7);
     position: absolute;
     top:0;
-
+    height: 100%;
+   
     display: flex;
     justify-content: center;
     align-items: center;
-  /* display:none;*/
+   display:none;
 }
 .close{
     position: relative;

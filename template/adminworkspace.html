@@ -3,19 +3,19 @@
     <head>
         <script src="/static/adminworkspace.js"></script>
         <link rel="stylesheet" type="text/css" href="/static/adminworkspace.css">
-        <title>Welcome Admin</title>
+        <title> {{session.admin_email}}</title>
     </head>
     <body>
         <div class="main">
-            <h3>Welcome {{user}}</h3>
+            <h3>Welcome {{session.admin_email}}</h3>
             <div class="list">
                 <ul id="lm" onclick="listclick()">
                     <li>
                          Message from Ashwin
                     </li><br>
-                    <li>
-                        Message from Ashwin
-                   </li>
+       
+
+                    
                 </ul>
             </div>
         </div>
@@ -24,12 +24,12 @@
                             <div class="close" onclick="saveclose()">+</div>
                             
                            <div class="sent">
-                               
-                                   <input type="text" id="sentmonth"><input type="text" id="sentyear">  <input type="text" id="sentdate"><br>
+                 
+                                   <input type="text" placeholder="Month" id="sentmonth"><input type="text" placeholder="Year" id="sentyear">  <input type="text" placeholder="Date" id="sentdate"><br>
                                    <input type="text" id="sentsub"><br>
                                   <textarea id="sentcont"></textarea><br>
-                                 <a href="adminreply.html"><input type="submit" value="Reply" id="reply"></a>
-                            
+                                 <a href="/adminreply"><input type="submit" value="Reply" id="reply"></a>
+                              
                             </div></div></div>
        
     </body>

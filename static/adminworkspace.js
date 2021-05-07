@@ -5,4 +5,5 @@ function listclick(){
 function saveclose(){
   document.querySelector('.close');
   document.querySelector('.about-model').style.display='none';
+  document.querySelector('.about-model').style.overflow='fix';
 }

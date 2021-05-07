@@ -84,10 +84,36 @@ def userregistration():
 @app.route('/adminindex')
 def adminindex():
     return render_template('admin.html')
+    
+@app.route('/workspace')
+def adminworkspace():
+    if 'loggedin' in session:
+         return render_template('adminworkspace.html', adminname=session['admin_email'])
+    # User is not loggedin redirect to login page
+    return redirect(url_for('adminlogin'))
+  
+    
 
-@app.route('/adminlogin')
+@app.route('/adminlogin',methods=['POST','GET'])
 def adminlogin():
-   return render_template('adminlogin.html')
+     if request.method=='POST':
+        message="Please fill the login "
+        adminname=request.form['admin_name']
+        adminpassword=request.form['admin_psw']
+        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM admin WHERE adminemail = %s AND adminpassword = %s', (adminname, adminpassword))
+        admin=cursor.fetchone()
+
+        if admin:
+            session['loggedin'] = True
+            session['admin_psw'] = admin['adminpassword']
+            session['admin_email'] = admin['adminemail']
+            return redirect(url_for('adminworkspace'))
+        else:
+            # Account doesnt exist or username/password incorrect
+            message = 'Incorrect username/password!'
+        return render_template('login.html', message='')
+     return render_template('adminlogin.html')
 
 @app.route('/adminregistration',methods=['POST','GET'])
 def adminregistration():
@@ -117,11 +143,15 @@ def adminregistration():
         msg = 'Please fill out the form!'
     # Show registration form with message (if any)
         return render_template('adminsignup.html', msg=msg)
-
-
-
-
     return render_template('adminsignup.html')
+
+@app.route('/adminreply')
+def adminreply():
+    return render_template('adminreply.html')
+    
+    
+
+
 
 
    
