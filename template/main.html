@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{session.u_name}}</title>
+        <link rel="stylesheet" type="text/css" href="/static/main.css">
+        <script src="/static/main.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <h3>
+                Hi {{session.u_name}} !
+            </h3>
+        </div>
+        <div id="about" onclick="aboutclick()"> 
+            <h3>
+                About Me
+            </h3>
+        </div>
+        <div id="notify">
+            <h3>
+               Add Complaint
+            </h3>
+        </div>
+        <div id="save">
+            <h3>
+               Saved items
+            </h3>
+        </div>
+        <div id="sent">
+            <h3>
+                Send items
+            </h3>
+        </div>
+        <div id="recieve">
+            <h3>
+                Recieved items
+            </h3>
+        </div>
+        
+        <div class="about-model">
+            <div class="about-model-box">
+                            <div class="close" onclick="closing()">+</div>
+                            <div id="abtplus"><a href="aboutedit.html">+</a></div>
+                           <form id="about-form" method="post" action="#">
+                                <div class="aboutform">
+                                <input type="text" size="20px" id="abtname"  ><br>
+                             <input type="text" size="20px" id="abtreg"  ><br>
+                             <input type="text" size="20px"  id="abtdept" ><br>
+                             <input type="text" size="20px" id="abtclg" ><br>
+                             <input type="text" size="20px"  id="abtbatch" ><br>
+                </div></form>
+                            </div></div>
+                           
+   
+
+
+              
+
+
+
+                
+   
+
+
+
+
+
+
+
+
+       
+            
+            
+
+   
+    </body>
+</html>

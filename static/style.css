@@ -1,0 +1,173 @@
+body{
+    background-color: rgba(165, 66, 107, 0.808);
+    width:100%;
+    height:100%;
+    background-image: url('/images/bgimg.png');
+    background-size: cover;
+}
+.header{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size:30px;
+    color:white;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 500px;
+    display: block;
+    background-color: goldenrod;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+    
+}
+.main{
+    padding-top:20px;
+   
+}
+.col2{
+    float: right;
+    width:730px;
+   
+    height:820px; /* Should be removed. Only for demonstration */
+  }
+  .col1 {
+    float: left;
+    width:750px;
+    padding: 10px;
+   
+    height:820px; /* Should be removed. Only for demonstration */
+   
+    background-size:cover;
+  }
+ 
+  
+  /* Clear floats after the columns */
+  .main:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .innerbox1{
+      background-color: gold;
+      
+      display:inline-block;
+      margin: 20px 180px 0px 180px;
+      padding:20px;
+      padding-top: 20px;
+      padding-bottom: 50px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      
+  }
+  #innerbox1{
+      display:inline-block;
+      background-color: white;
+      width:200px;
+      height: 100px;
+
+  }
+
+  .innerbox2{
+    background-color: rgb(95, 83, 17);
+    display: block;
+    margin: 20px 180px 0px 180px;
+    padding:20px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+.innerbox3{
+    background-color: rgb(173, 152, 29);
+    display: block;
+    margin: 20px 180px 0px 180px;
+    padding:20px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+.innerbox1 h2{
+    color: white;
+   
+}
+.innerbox2 h2{
+    color: white;
+   
+}
+.innerbox3 h2{
+    color: white;
+
+}
+.innerbox1:hover{
+    color: white;
+    background-color: rgb(5, 5, 26);
+}
+.innerbox2:hover{
+    color: white;
+    background-color: purple;
+}
+.innerbox3:hover{
+    color: white;
+    background-color: brown;
+}
+.log{
+    background-color: rgb(250, 237, 247);
+    display: block;
+    margin-top: 30px;
+    border-radius: 20px;
+    margin-left: 80px;
+    margin-right: 50px;
+    padding-top: 100px;
+    padding-bottom:350px;
+   padding-left: 20px;
+    background-image: url('./images/headpost.jpg');
+    background-size: cover;
+}
+.log a{
+    text-decoration: none;
+    color:white;
+}
+#signin{
+    display: block;
+    background-color: rgba(220, 20, 60, 0.534);
+    padding-top: 20px;
+    padding-left: 180px;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 50px;
+    border-radius: 50px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    color:white;
+    
+}
+#signup{
+    display: block;
+    background-color: rgba(90, 20, 220, 0.534);
+    padding-top: 20px;
+    padding-left: 180px;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 50px;
+    border-radius: 50px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    color:white;
+    
+}
+#signin:hover{
+    background-color: rgb(7, 7, 24);
+    color:black;
+}
+#signup:hover{
+    background-color: rgb(99, 177, 47);
+    color:black;
+}
