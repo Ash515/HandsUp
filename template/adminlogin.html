@@ -125,11 +125,11 @@ span.psw {
   </div>
 
   <div class="container">
-    <label for="numid"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required>
+    <label for="numid"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email ID" name="admin_name" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="admin_psw" required>
         
     <button type="submit"><a href="#" style="text-decoration: none;color:white">Sign In</a></button>
     <label>
@@ -141,9 +141,9 @@ span.psw {
 
 </form>
 <div class="container" style="background-color:#f1f1f1">
-  <button type="button" class="cancelbtn"><a href="/" style="text-decoration:none;" id="cancel">Cancel</a></button>
-  <span class="psw">Forgot <a href="#" style="text-decoration:none;">password?</a></span>
-  <div class="sign"><center><a href="adminsignup.htm" style="text-decoration: none;color:white"><div id="SU">Sign Up</div></a></center></div>
+  <button type="button" class="cancelbtn"><a href="{{url_for('adminindex')}}" style="text-decoration:none;" id="cancel">Cancel</a></button>
+ 
+  <div class="sign"><center><a href="/adminregistration" style="text-decoration: none;color:white"><div id="SU">Sign Up</div></a></center></div>
   
 </div>
 </div>

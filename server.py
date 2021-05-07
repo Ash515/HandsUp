@@ -25,7 +25,9 @@ def main():
 
 @app.route('/userlogin',methods=['POSt','GET'])
 def userlogin():
+   
     if request.method=='POST':
+        message="Please fill the login "
         username=request.form['u_name']
         userpassword=request.form['u_psw']
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -78,6 +80,48 @@ def userregistration():
         msg = 'Please fill out the form!'
     # Show registration form with message (if any)
      return render_template('signup.htm', msg=msg)
+
+@app.route('/adminindex')
+def adminindex():
+    return render_template('admin.html')
+
+@app.route('/adminlogin')
+def adminlogin():
+   return render_template('adminlogin.html')
+
+@app.route('/adminregistration',methods=['POST','GET'])
+def adminregistration():
+    if request.method=='POST':
+        msg=""
+        adminname=request.form['admin_uname']
+        adminemail=request.form['admin_email']
+        adminpassword=request.form['admin_psw']
+        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        account=cursor.execute('SELECT * FROM admin WHERE adminemail=%s',(adminemail,))
+        if account :
+            msg="Account already exists in this email Id"
+        elif not re.match(r'[^@]+@[^@]+\.[^@]+',adminemail):
+            msg = 'Invalid email address!'
+        elif not re.match(r'[A-Za-z0-9]+', adminname):
+            msg = 'Username must contain only characters and numbers!'
+        elif not adminname or not adminpassword or not adminemail:
+            msg = 'Please fill out the form!'
+        else:
+            cursor.execute('INSERT INTO admin VALUES (%s, %s, %s)', (adminname, adminemail, adminpassword))
+            mysql.connection.commit()
+            msg = 'You have successfully registered!'
+            #after successfully inserted redirect to loginpage
+            return render_template('adminlogin.html')  
+    elif request.method == 'POST':
+        # Form is empty... (no POST data)
+        msg = 'Please fill out the form!'
+    # Show registration form with message (if any)
+        return render_template('adminsignup.html', msg=msg)
+
+
+
+
+    return render_template('adminsignup.html')
 
 
    

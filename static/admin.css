@@ -1,6 +1,8 @@
 body{
-    background-image: url("./images/admin.png");
+    background-image: url("/static/images/adminindex.png");
+    background-size: 1550px 900px ;
     background-position: cover;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .header{

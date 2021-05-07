@@ -28,7 +28,7 @@ input[type=text], input[type=password] {
   display: inline-block;
   border: none;
   
-  background: #23552a;
+  background: #23552a86;
 }
 input[type=number] {
   width: 100%;
@@ -106,36 +106,30 @@ button:hover {
   <div class="column1">
     
   </div>
-  <div class="column" style="background-color:#0c253aa6;">
+  <div class="column" style="background-color:#6ccf92a6;">
 
-<form action="/register" style="border:1px solid #ccc" method="post">
+<form action="/adminregistration" style="border:1px solid #ccc" method="post">
   <div class="container">
     <h1>Admin-SignUp</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
     <label for="email"><b>Username</b></label>
-    <input type="text" placeholder="Enter username" name="username" required>
+    <input type="text" placeholder="Enter username" name="admin_uname" required>
 
     
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <input type="text" placeholder="Enter Email" name="admin_email" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-  <!-- <label for="psw"><b> Confirm Password</b></label>
-    <input type="password" placeholder="Confirm Password" name="pswrepeat" required>-->
-
-   <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="pswrepeat" required>
-   -->
+    <input type="password" placeholder="Enter Password" name="admin_psw" required>
+ 
     <label>
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
     </label>
     
-    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
+   {{msg}}
     <div class="clearfix">
-      <button type="button" class="cancelbtn"><a href="/" id="cancel" style="text-decoration:none;">Cancel</a></button>
+      <button type="button" class="cancelbtn"><a href="{{url_for('adminindex')}}" id="cancel" style="text-decoration:none;">Cancel</a></button>
       <button type="submit" class="signupbtn">Sign Up</button>
     </div>
   </div>
