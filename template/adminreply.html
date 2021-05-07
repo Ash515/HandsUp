@@ -87,16 +87,16 @@ color: blue;
         <div class="main">
               
         
-        <form>
+        
             <div class="repsent">
-                <form action="/sending" method="POST">      
-                <input type="text" placeholder="Date" id="repsentmonth"><input type="text" placeholder="Month" id="repsentyear">  <input type="text" placeholder="Year" id="repsentdate"><br>
-                <input type="text" placeholder="Subject" id="repsentsub"><br>
-               <textarea id="repsentcont" placeholder="Message"></textarea><br>
+                <form action="/adminreply" method="POST">      
+                <input type="text" name="rep_date" placeholder="Date" id="repsentmonth"><input type="text" name="rep_month" placeholder="Month" id="repsentyear">  <input type="text" name="rep_year" placeholder="Year" id="repsentdate"><br>
+                <input type="text" name="rep_subject" placeholder="Subject" id="repsentsub"><br>
+               <textarea id="repsentcont" name="rep_message" placeholder="Message"></textarea><br>
                <input type="submit" value="Send" id="sending">
                </form>
          </div>
-        </form></div>
+        </div>
 
     </body>
 </html>

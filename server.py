@@ -85,14 +85,6 @@ def userregistration():
 def adminindex():
     return render_template('admin.html')
     
-@app.route('/workspace')
-def adminworkspace():
-    if 'loggedin' in session:
-         return render_template('adminworkspace.html', adminname=session['admin_email'])
-    # User is not loggedin redirect to login page
-    return redirect(url_for('adminlogin'))
-  
-    
 
 @app.route('/adminlogin',methods=['POST','GET'])
 def adminlogin():
@@ -145,8 +137,26 @@ def adminregistration():
         return render_template('adminsignup.html', msg=msg)
     return render_template('adminsignup.html')
 
-@app.route('/adminreply')
+@app.route('/workspace')
+def adminworkspace():
+    if 'loggedin' in session:
+         return render_template('adminworkspace.html', adminname=session['admin_email'])
+    # User is not loggedin redirect to login page
+    return redirect(url_for('adminlogin'))
+  
+@app.route('/adminreply',methods=['GET','POST'])
 def adminreply():
+    if request.method=='POST':
+        replydate=request.form['rep_date']
+        replymonth=request.form['rep_month']
+        replyyear=request.form['rep_year']
+        replysubject=request.form['rep_subject']
+        replymessage=request.form['rep_message']
+        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('INSERT INTO adminreply VALUES(%s,%s,%s,%s,%s)',(replydate,replymonth,replyyear,replysubject,replymessage))
+        cursor.connection.commit()
+        return redirect(url_for('adminworkspace'))
+
     return render_template('adminreply.html')
     
     
