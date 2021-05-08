@@ -20,12 +20,9 @@ def index():
 def main():
      if 'loggedin' in session:
          return render_template('main.html', usermail=session['u_name'])
+     
     # User is not loggedin redirect to login page
-    
-     cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-     cursor.execute('SELECT * FROM userprofile WHERE name=%s',(session['u_name']))
-     userprofile=cursor.fetchall()
-     return redirect(url_for('userlogin'), userprofile= userprofile)
+     return render_template('userlogin.html')
 
 @app.route('/userlogin',methods=['POSt','GET'])
 def userlogin():
@@ -102,6 +99,7 @@ def aboutedit():
 
 @app.route('/adminindex')
 def adminindex():
+   
     return render_template('admin.html')
     
 
