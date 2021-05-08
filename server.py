@@ -81,6 +81,15 @@ def userregistration():
     # Show registration form with message (if any)
      return render_template('signup.htm', msg=msg)
 
+@app.route('/aboutedit',method=['POST','GET'])
+def aboutedit():
+    if request.method=='POST':
+        name=request.form['name']
+        email=request.form['email']
+        dept=request.form['dept']
+        regno=request.form['regno']
+
+
 @app.route('/adminindex')
 def adminindex():
     return render_template('admin.html')
