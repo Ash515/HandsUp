@@ -89,6 +89,13 @@ function abteditclosing(){
     document.querySelector('.abtedit-model').style.display="none";
 }
 
+function display(){
+    document.querySelector('.column2').style.display="block";
+}
+function displayclose(){
+    document.querySelector('.column2').style.display="none";
+}
+
 
 
 

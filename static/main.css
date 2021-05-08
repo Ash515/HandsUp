@@ -3,9 +3,12 @@
     height:50px;
     background-color:rgb(180, 87, 87);
     color:white;
+ 
     
 }
 body{
+    
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgba(226, 239, 240, 0.959);
 }
 .header h3{
@@ -195,4 +198,77 @@ body{
 #abtplus{
     margin-left:680px;
     font-size:42px;
+}
+.column1 {
+    float: left;
+    width:750px;
+    padding: 10px;
+    background-color: rgb(166, 144, 185);
+   text-align: center;
+    height:820px; /* Should be removed. Only for demonstration */
+   
+    background-size:cover;
+  }
+.column2{
+    float: right;
+    width:730px;
+    display: none;
+    height:100px; /* Should be removed. Only for demonstration */
+  }
+ .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+#add-complain{
+    width: 400px;
+    margin-left: 150px;
+    padding-top: 10px;
+    border-radius: 10px;
+    height: 50px;
+    background-color: maroon;
+    color:white;
+    cursor: pointer;
+}
+.add-complain{
+    margin-left:120px;
+    margin-top: 50px;
+}
+#comp-date{
+    width:500px;
+    height:25px;
+    margin-top: 20px;
+}
+#submit{
+    width:200px;
+    margin-left: 150px;
+    margin-top: 50px;
+    height: 30px;
+    background-color: green;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+textarea{
+    height: 60px;
+    width:500px;
+    border-color: black;
+    margin-top: 20px;
+}
+#cancel{
+    margin-left: 600px;
+    background-color: rgba(0, 0, 0, 0.589);
+    color: white;
+    width: 30px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 20px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#cancel:hover{
+    background-color: rgba(0, 0, 0, 0.37);
+    transition: 0s;
 }

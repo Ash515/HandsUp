@@ -11,39 +11,32 @@
                 Hi {{session.u_name}} !
             </h3>
         </div>
-       
+       <div class="row">
+           <div class="column1">
+                <h3 id="add-complain" onclick="display()">Add Complaint</h3>      
+           </div>
+           <div class="column2">
+            <div id="cancel" onclick="displayclose()">x</div>
+               <div class="add-complain">
+                   
+                   <form action="/complain" method="POST">
+                       <input type="text" id="comp-date" name="complaint_name" placeholder="complain name"> <br>
+                       <input type="text" id="comp-date" name="student_mail" placeholder="Type your mail Id"><br>
+                       <textarea name="complaint_msg" id="comp-text" placeholder="Type your complain here"></textarea></textarea> <br>
+                       <input type="date" id="comp-date" name="complaint_date">
+                       <input type="submit" id="submit" value="Send">
+
+                   </form>
+               </div>
+
+           </div>
+       </div>
           
        
-        <div id="about" onclick="aboutclick()"> 
-           {% for row in userprofile %}
-            <h3>
-                About Me   {{row.name}}
-            </h3>
-            {% endfor %}
-        </div>
-         
-        <div id="notify">
-            <h3>
-               Add Complaint
-            </h3>
-        </div>
-        <div id="save">
-            <h3>
-               Saved items
-            </h3>
-        </div>
-        <div id="sent">
-            <h3>
-                Send items
-            </h3>
-        </div>
-        <div id="recieve">
-            <h3>
-                Recieved items
-            </h3>
-        </div>
-        
-        <div class="about-model">
+       
+
+        <!--
+                    <div class="about-model">
            
             <div class="about-model-box">
               

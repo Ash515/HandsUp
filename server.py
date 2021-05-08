@@ -97,6 +97,11 @@ def aboutedit():
         return redirect(url_for('main'))
     return render_template('aboutedit.html')
 
+
+@app.route('/complain',methods=['POST','GET'])
+def complain():
+    if request
+
 @app.route('/adminindex')
 def adminindex():
    
