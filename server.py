@@ -21,7 +21,11 @@ def main():
      if 'loggedin' in session:
          return render_template('main.html', usermail=session['u_name'])
     # User is not loggedin redirect to login page
-     return redirect(url_for('userlogin'))
+    
+     cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+     cursor.execute('SELECT * FROM userprofile WHERE name=%s',(session['u_name']))
+     userprofile=cursor.fetchall()
+     return redirect(url_for('userlogin'), userprofile= userprofile)
 
 @app.route('/userlogin',methods=['POSt','GET'])
 def userlogin():
@@ -81,14 +85,20 @@ def userregistration():
     # Show registration form with message (if any)
      return render_template('signup.htm', msg=msg)
 
-@app.route('/aboutedit',method=['POST','GET'])
+@app.route('/aboutedit',methods=['POST','GET'])
 def aboutedit():
     if request.method=='POST':
         name=request.form['name']
         email=request.form['email']
         dept=request.form['dept']
         regno=request.form['regno']
+        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('INSERT INTO userprofile VALUES(%s,%s,%s,%s)',(email,name,dept,regno))
+        mysql.connection.commit()
+       
 
+        return redirect(url_for('main'))
+    return render_template('aboutedit.html')
 
 @app.route('/adminindex')
 def adminindex():
