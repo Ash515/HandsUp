@@ -3,8 +3,9 @@
     height:50px;
     background-color:rgb(180, 87, 87);
     color:white;
- 
-    
+}
+li{
+    list-style-type: none;
 }
 body{
     
@@ -210,34 +211,42 @@ body{
     background-size:cover;
   }
 .column2{
+    background-color: rgba(0, 255, 242, 0.589);
     float: right;
     width:730px;
-    display: none;
-    height:100px; /* Should be removed. Only for demonstration */
+    height:840px;
+    /* Should be removed. Only for demonstration */
   }
  .row:after {
     content: "";
     display: table;
     clear: both;
   }
-#add-complain{
-    width: 400px;
-    margin-left: 150px;
-    padding-top: 10px;
-    border-radius: 10px;
-    height: 50px;
-    background-color: maroon;
-    color:white;
-    cursor: pointer;
-}
-.add-complain{
-    margin-left:120px;
-    margin-top: 50px;
-}
+  .image{
+      
+    background-size:cover;
+    height:840px;
+    background-image:url('/static/images/adminlogin.jpg');
+  }
+
 #comp-date{
     width:500px;
-    height:25px;
+    border-radius: 10px;
+    height:35px;
     margin-top: 20px;
+}
+textarea{
+    height: 60px;
+    width:500px;
+   
+    margin-top: 20px;
+    border-radius: 10px;
+}
+#comp-date::placeholder{
+    padding-left: 20px;
+}
+textarea::placeholder{
+    padding-left: 20px;
 }
 #submit{
     width:200px;
@@ -249,14 +258,9 @@ body{
     font-size: 16px;
     cursor: pointer;
 }
-textarea{
-    height: 60px;
-    width:500px;
-    border-color: black;
-    margin-top: 20px;
-}
+
 #cancel{
-    margin-left: 600px;
+    margin-left: 550px;
     background-color: rgba(0, 0, 0, 0.589);
     color: white;
     width: 30px;
@@ -272,3 +276,147 @@ textarea{
     background-color: rgba(0, 0, 0, 0.37);
     transition: 0s;
 }
+#sent-cancel{
+    margin-left: 630px;
+    background-color: rgba(0, 0, 0, 0.589);
+    color: white;
+    width: 30px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 20px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#sent-cancel:hover{
+    background-color: rgba(0, 0, 0, 0.37);
+    transition: 0s;
+}
+
+#add-complain{
+    width: 400px;
+    margin-left: 150px;
+    padding-top: 10px;
+    border-radius: 10px;
+    height: 50px;
+    background-color: maroon;
+    color:white;
+    cursor: pointer;
+    margin-top:30px;    
+}
+
+
+#sent-items{
+    width: 400px;
+    margin-top:30px;
+    margin-left: 150px;
+    padding-top: 10px;
+    border-radius: 10px;
+    height: 50px;
+    background-color: rgb(45, 0, 128);
+    color:white;
+    cursor: pointer;
+}
+#recieved-items{
+    width: 400px;
+    margin-top:30px;
+    margin-left: 150px;
+    padding-top: 10px;
+    border-radius: 10px;
+    height: 50px;
+    background-color: rgb(179, 154, 44);
+    color:white;
+    cursor: pointer;
+}
+.add-complain{
+    display: none;
+   
+        margin-left:120px;
+        margin-top: 50px;
+    
+}
+.sent-items{
+       
+        display: none;
+        margin-left:10px;
+        margin-top: 50px;
+    
+}
+.sentlist{
+    background-color: white;
+    height:100px;
+    margin-right: 50px;
+    padding-left: 30px;
+    padding-top: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+    color:rgb(75, 10, 10);
+    
+}
+.sentlist:hover{
+    background-color: rgb(131, 223, 223);
+    border-color: rgb(27, 11, 39);
+    border-width: 30px;
+    color:white;
+    transition: 1ms;
+
+}
+
+
+.recieved-items{
+       
+    display: none;
+    margin-left:10px;
+    margin-top: 50px;
+
+}
+.recievedlist{
+background-color: white;
+height:100px;
+margin-right: 50px;
+padding-left: 30px;
+padding-top: 20px;
+cursor: pointer;
+border-radius: 10px;
+font-size: 16px;
+color:rgb(75, 10, 10);
+
+}
+.recievedlist:hover{
+background-color: rgb(131, 223, 223);
+border-color: rgb(27, 11, 39);
+border-width: 30px;
+color:white;
+transition: 1ms;
+
+}
+.recieved-items h3{
+    margin-left: 50px;
+    background-color: rgb(31, 8, 48);
+    color:white;
+    width:500px;
+    height: 30px;
+    padding-left: 30px;
+    border-radius: 5px;
+}
+.sent-items h3{
+    margin-left: 50px;
+    background-color: rgb(136, 44, 67);
+    color:white;
+    width:500px;
+    height: 30px;
+    padding-left: 30px;
+    border-radius: 5px;
+}
+.add-complain h3{
+margin-right: 50px;
+    background-color: rgb(24, 25, 104);
+    color:white;
+    width:475px;
+    height: 30px;
+    padding-left: 30px;
+    border-radius: 5px;
+}
+

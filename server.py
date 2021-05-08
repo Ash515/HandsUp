@@ -100,7 +100,18 @@ def aboutedit():
 
 @app.route('/complain',methods=['POST','GET'])
 def complain():
-    if request
+    if request.method=='POST':
+        studentemail=request.form['student_mail']
+        complaintname=request.form['complaint_name']
+        complaintmessage=request.form['complaint_msg']
+        complaintdate=request.form['complaint_date']
+        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('INSERT INTO complains VALUES(%s,%s,%s,%s)',(studentemail,complaintname,complaintmessage,complaintdate))
+        mysql.connection.commit()
+    return redirect(url_for('main'))
+    
+
+
 
 @app.route('/adminindex')
 def adminindex():

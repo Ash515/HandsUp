@@ -12,24 +12,71 @@
             </h3>
         </div>
        <div class="row">
-           <div class="column1">
-                <h3 id="add-complain" onclick="display()">Add Complaint</h3>      
-           </div>
-           <div class="column2">
-            <div id="cancel" onclick="displayclose()">x</div>
-               <div class="add-complain">
-                   
-                   <form action="/complain" method="POST">
-                       <input type="text" id="comp-date" name="complaint_name" placeholder="complain name"> <br>
-                       <input type="text" id="comp-date" name="student_mail" placeholder="Type your mail Id"><br>
-                       <textarea name="complaint_msg" id="comp-text" placeholder="Type your complain here"></textarea></textarea> <br>
-                       <input type="date" id="comp-date" name="complaint_date">
-                       <input type="submit" id="submit" value="Send">
+         
+                <div class="column1">
+                <h3 id="add-complain" onclick="displayaddcomplain()">Add Complaint</h3>      
+                <h3 id="sent-items" onclick="displaysentitems()">Sent Items</h3>  
+                <h3 id="recieved-items" onclick="displayrecievedsitems()">Recieved Items</h3>          
+                </div>
+                <div class="column2">
+                    <div class="image"></div>
+                  
+                    <div class="add-complain" >
+                        <h3>Post your complaints</h3>
+                        <div id="cancel" onclick="displayclose()">x</div>
+                         <form action="/complain" method="POST" id="form">
+                             <input type="text" id="comp-date" name="complaint_name" placeholder="complain name"> <br>
+                             <input type="text" id="comp-date" name="student_mail" placeholder="Type your mail Id"><br>
+                             <textarea name="complaint_msg" id="comp-text" placeholder="Type your complain here"></textarea></textarea> <br>
+                             <input type="date" id="comp-date" name="complaint_date">
+                             <input type="submit" id="submit" value="Send">
+                            </form>
+                     </div>
 
-                   </form>
-               </div>
+                     <div class="sent-items" >
+                        <h3> Sent Lists</h3>
+                        <div id="sent-cancel" onclick="displayclose()">x</div>
+                        <ul>
+                            <li>  
+                               <div class="sentlist">
+                               <b>Date:</b> <br>
+                                <b>Complain Name:</b><br>
+                                <b>Message:</b><br>
+                               </div>
+                             </ul>
+                        </div>
 
-           </div>
+                        <div class="recieved-items" >
+                           <h3> Recieved Lists</h3>
+                            <div id="sent-cancel" onclick="displayclose()">x</div>
+                            <ul>
+                                <li>  
+                                   <div class="recievedlist">
+                                   <b>Date:</b> <br>
+                                    <b>From:</b><br>
+                                    <b>Message:</b><br>
+                                   </div>
+                                   </li>
+                                 </ul>
+                            </div>
+
+
+
+
+
+
+                  
+                 </div>
+              
+               
+            
+              
+             
+         
+         
+            </div>
+           
+          
        </div>
           
        

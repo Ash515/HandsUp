@@ -88,13 +88,32 @@ function abteditclosing(){
     document.querySelector('.about-model').style.display="block";
     document.querySelector('.abtedit-model').style.display="none";
 }
-
-function display(){
-    document.querySelector('.column2').style.display="block";
-}
 function displayclose(){
-    document.querySelector('.column2').style.display="none";
+    document.querySelector('.image').style.display="block";
+    document.querySelector('.add-complain').style.display="none";
 }
+
+function displayaddcomplain(){
+    document.querySelector('.add-complain').style.display="block";
+    document.querySelector('.image').style.display="none";
+    document.querySelector('.sent-items').style.display="none";
+    document.querySelector('.recieved-items').style.display="none";
+}
+function displaysentitems(){
+    document.querySelector('.add-complain').style.display="none";
+    document.querySelector('.sent-items').style.display="block";
+    document.querySelector('.image').style.display="none";
+    document.querySelector('.recieved-items').style.display="none";
+}
+
+function displayrecievedsitems(){
+    document.querySelector('.add-complain').style.display="none";
+    document.querySelector('.sent-items').style.display="none";
+    document.querySelector('.recieved-items').style.display="block";
+    document.querySelector('.image').style.display="none";
+   
+}
+
 
 
 
