@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>{{session.u_name}}</title>
         <link rel="stylesheet" type="text/css" href="/static/main.css">
         <script src="/static/main.js"></script>
@@ -8,9 +9,10 @@
     <body>
         <div class="header">
             <h3>
-                Hi {{session.u_name}} !
+                Hi {{session.u_name}} !  <a href="#" onclick="mainnavbar()"><i class="fa fa-bars"></i></a>
             </h3>
         </div>
+      
        <div class="row">
          
                 <div class="column1">
@@ -19,7 +21,18 @@
                 <h3 id="recieved-items" onclick="displayrecievedsitems()">Recieved Items</h3>          
                 </div>
                 <div class="column2">
-                    <div class="image"></div>
+
+
+                   
+                    <div class="image" onclick="imageclose()">
+                        &nbsp;
+                        
+                        <div class="nav-bar">
+                            <h3 id="profile">Profile</h3>
+                            <h3 id="settings">Settings</h3>
+                            <h3 id="logout">Logout</h3>
+                        </div>
+                    </div>
                   
                     <div class="add-complain" >
                         <h3>Post your complaints</h3>
@@ -59,25 +72,9 @@
                                    </li>
                                  </ul>
                             </div>
-
-
-
-
-
-
-                  
-                 </div>
-              
-               
-            
-              
-             
-         
-         
-            </div>
-           
-          
-       </div>
+                        </div>
+                    </div>
+           </div>
           
        
        

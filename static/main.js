@@ -91,6 +91,8 @@ function abteditclosing(){
 function displayclose(){
     document.querySelector('.image').style.display="block";
     document.querySelector('.add-complain').style.display="none";
+    document.querySelector('.sent-items').style.display="none";
+    document.querySelector('.recieved-items').style.display="none";
 }
 
 function displayaddcomplain(){
@@ -113,6 +115,13 @@ function displayrecievedsitems(){
     document.querySelector('.image').style.display="none";
    
 }
+function mainnavbar(){
+    document.querySelector('.nav-bar').style.display="block";
+}
+function imageclose(){
+    var a=document.querySelector('.nav-bar').style.display="none";
+   
+} 
 
 
 

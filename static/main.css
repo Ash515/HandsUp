@@ -3,10 +3,55 @@
     height:50px;
     background-color:rgb(180, 87, 87);
     color:white;
+    display: inline-flex;
+}
+i{
+    margin-left:1200px;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: white;
 }
 li{
     list-style-type: none;
 }
+.nav-bar{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: antiquewhite;
+    width:200px;
+    height: 250px;
+    padding-top: 30px;
+    margin-left: 500px;
+    margin-top:0px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+   
+   
+}
+.nav-bar h3{
+    text-align: center;
+}
+#profile{
+    background-color: rgba(0, 0, 255, 0.411);
+    color: white;
+    height:30px ;
+    padding-top: 10px;
+    width: 160px;
+    margin-left: 20px;
+    border-radius: 5px;
+    border-color: maroon;
+}
+#profile:hover{
+    background-color: rgba(0, 255, 191, 0.644);
+    color:maroon;
+   
+}
+
+
+
+
+
 body{
     
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -223,7 +268,7 @@ body{
     clear: both;
   }
   .image{
-      
+      display: block;
     background-size:cover;
     height:840px;
     background-image:url('/static/images/adminlogin.jpg');
