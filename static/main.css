@@ -19,14 +19,14 @@ li{
 .nav-bar{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: antiquewhite;
-    width:200px;
+    width:230px;
     height: 250px;
     padding-top: 30px;
-    margin-left: 500px;
+    margin-left: 480px;
     margin-top:0px;
     margin-bottom: 10px;
     border-radius: 10px;
-   
+   display: none;
    
 }
 .nav-bar h3{
@@ -38,13 +38,52 @@ li{
     height:30px ;
     padding-top: 10px;
     width: 160px;
-    margin-left: 20px;
+    margin-left: 35px;
     border-radius: 5px;
     border-color: maroon;
+    border-width: thick;
+    cursor: pointer;
 }
 #profile:hover{
-    background-color: rgba(0, 255, 191, 0.644);
+    background-color: rgba(195, 0, 255, 0.26);
     color:maroon;
+    border-width: thick;
+   
+}
+#settings{
+    background-color: rgba(0, 0, 255, 0.411);
+    color: white;
+    height:30px ;
+    padding-top: 10px;
+    width: 160px;
+    margin-left: 35px;
+    border-radius: 5px;
+    border-color: maroon;
+    border-width: thick;
+    cursor: pointer;
+}
+#settings:hover{
+    background-color: rgba(195, 0, 255, 0.26);
+    color:maroon;
+    border-width: thick;
+   
+}
+#logout{
+    background-color: rgba(0, 0, 255, 0.411);
+    color: white;
+    height:30px ;
+    padding-top: 10px;
+    width: 160px;
+    margin-left: 35px;
+    border-radius: 5px;
+    border-color: maroon;
+    border-width: thick;
+    cursor: pointer;
+}
+#logout:hover{
+    background-color: rgba(195, 0, 255, 0.26);
+    color:maroon;
+    border-width: thick;
    
 }
 

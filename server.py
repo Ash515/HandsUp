@@ -81,7 +81,16 @@ def userregistration():
         msg = 'Please fill out the form!'
     # Show registration form with message (if any)
      return render_template('signup.htm', msg=msg)
+@app.route('/userlogout')
+def userlogut():
+   session.pop('u_name')
+   return redirect(url_for('index'))
 
+@app.route('/profile')
+def profile():
+    return render_template('profile.html') 
+    
+   
 @app.route('/aboutedit',methods=['POST','GET'])
 def aboutedit():
     if request.method=='POST':

@@ -1,0 +1,65 @@
+body{
+    background-color: rgba(0, 0, 255, 0.185);
+}
+.main{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    margin-left: 450px;
+    margin-top: 20px;
+width:550px ;
+height:600px;
+border-radius: 10px;
+border-color: #4CAF50;
+}
+.profile-details{
+    margin-left: 50px;
+    padding-top: 50px;
+
+}
+
+#report {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width:450px;
+    
+  }
+  
+  #report td, #report th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  #report tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #report tr:hover {background-color: #ddd;}
+  
+  #report th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+  td{
+      width: 200px;
+  }
+  #address{
+      height: 60px;
+  }
+  #sent-cancel{
+    margin-left: 630px;
+   
+    color: white;
+    width: 30px;
+    margin-left: 1400px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 20px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
