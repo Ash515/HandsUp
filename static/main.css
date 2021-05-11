@@ -1,3 +1,8 @@
+body{
+    
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(226, 239, 240, 0.959);
+}
 .header{
     width:1512px;
     height:50px;
@@ -85,16 +90,6 @@ li{
     color:maroon;
     border-width: thick;
    
-}
-
-
-
-
-
-body{
-    
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgba(226, 239, 240, 0.959);
 }
 .header h3{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -204,19 +199,7 @@ body{
     font-size: 20px;
 }
 
-.about-model{
-    width:100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    position: absolute;
-    top:0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display:none;
-    
 
-}
 
 
 .close{
@@ -228,67 +211,12 @@ body{
     cursor: pointer;
     
 }
-.about-model-box{
-    width: 800px;
-    height: 650px;
-    background-color:white;
-    border-radius: 4px;
-    text-align:center;
-    padding:20px;
-}
-.aboutform{
-   align-items: center;
-}
-#abtname{
-    width:350px;
-    height: 30px;
-    margin-top: 30px;
-    border-color: indigo;
-}
-#abtreg{
-    width:350px;
-    height: 30px;
-    margin-top: 10px;
-    border-color: indigo;
-}
-#abtclg{
-    width:350px;
-    height: 30px;
-    margin-top: 10px;
-    border-color: indigo;
-}
-#abtdept{
-    width:350px;
-    height: 30px;
-    margin-top: 10px;
-    border-color: indigo;
-}
-#abtbatch{
-    width:350px;
-    height: 30px;
-    margin-top: 10px;
-    border-color: indigo;
-}
-#abtsubmit{
-    width:100px;
-    height: 30px;
-    margin-top: 30px;
-    background-color: rgb(42, 133, 65);
-    cursor: pointer;
-    color: white;
-}
-.about-model-box a{
-    text-decoration: none;
-}
-#abtplus{
-    margin-left:680px;
-    font-size:42px;
-}
+
 .column1 {
     float: left;
     width:750px;
     padding: 10px;
-    background-color: rgb(166, 144, 185);
+    background-color: rgba(90, 35, 52, 0.329);
    text-align: center;
     height:820px; /* Should be removed. Only for demonstration */
    
@@ -504,3 +432,72 @@ margin-right: 50px;
     border-radius: 5px;
 }
 
+/*.about-model{
+    width:100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display:none;
+    
+
+}
+.about-model-box{
+    width: 800px;
+    height: 650px;
+    background-color:white;
+    border-radius: 4px;
+    text-align:center;
+    padding:20px;
+}
+.aboutform{
+   align-items: center;
+}
+#abtname{
+    width:350px;
+    height: 30px;
+    margin-top: 30px;
+    border-color: indigo;
+}
+#abtreg{
+    width:350px;
+    height: 30px;
+    margin-top: 10px;
+    border-color: indigo;
+}
+#abtclg{
+    width:350px;
+    height: 30px;
+    margin-top: 10px;
+    border-color: indigo;
+}
+#abtdept{
+    width:350px;
+    height: 30px;
+    margin-top: 10px;
+    border-color: indigo;
+}
+#abtbatch{
+    width:350px;
+    height: 30px;
+    margin-top: 10px;
+    border-color: indigo;
+}
+#abtsubmit{
+    width:100px;
+    height: 30px;
+    margin-top: 30px;
+    background-color: rgb(42, 133, 65);
+    cursor: pointer;
+    color: white;
+}
+.about-model-box a{
+    text-decoration: none;
+}
+#abtplus{
+    margin-left:680px;
+    font-size:42px;
+}*/

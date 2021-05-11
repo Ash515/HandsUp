@@ -1,10 +1,10 @@
 body{
-    background-image: url("/static/images/adminindex.png");
+background-color: rgba(226, 164, 71, 0.733);
     background-size: 1550px 900px ;
     background-position: cover;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
+ 
 .header{
     display: inline-flex;
     background-color: rgb(36, 24, 44);

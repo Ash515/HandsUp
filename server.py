@@ -150,8 +150,8 @@ def adminlogin():
         else:
             # Account doesnt exist or username/password incorrect
             message = 'Incorrect username/password!'
-        return render_template('login.html', message='')
-     return render_template('adminlogin.html')
+        return render_template('adminlogin.html', message='')
+     
 
 @app.route('/adminregistration',methods=['POST','GET'])
 def adminregistration():
@@ -186,9 +186,13 @@ def adminregistration():
 @app.route('/workspace')
 def adminworkspace():
     if 'loggedin' in session:
-         return render_template('adminworkspace.html', adminname=session['admin_email'])
-    # User is not loggedin redirect to login page
-    return redirect(url_for('adminlogin'))
+        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM complains')
+        complains=cursor.fetchall()
+        return render_template('adminworkspace.html', adminname=session['admin_email'],complains=complains)
+    else:
+        return render_template('adminlogin.html')
+  
   
 @app.route('/adminreply',methods=['GET','POST'])
 def adminreply():

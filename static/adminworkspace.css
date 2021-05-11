@@ -79,8 +79,9 @@ ul{
 #sentmonth{
     width:150px;
     height:30px;
+    margin-right: 380px;
 }
-#sentyear{
+/*#sentyear{
     width:150px;
     height:30px;
     margin-left:50px;
@@ -89,10 +90,11 @@ ul{
     width:150px;
     height:30px;
     margin-left:50px;
-}
+}*/
 #sentsub{
     margin-top: 20px;
-    width:570px;
+    margin-right: 100px;
+    width:400px;
     height:30px;
 }
 #sentcont{

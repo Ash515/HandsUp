@@ -9,14 +9,17 @@
         <div class="main">
             <h3>Welcome {{session.admin_email}}</h3>
             <div class="list">
+                
                 <ul id="lm" onclick="listclick()">
+                    {% for row in complains %}
                     <li>
-                         Message from Ashwin
+                         Message from {{ row.email }}
                     </li><br>
        
 
-                    
+                    {% endfor %}
                 </ul>
+                
             </div>
         </div>
         <div class="about-model">
@@ -24,13 +27,15 @@
                             <div class="close" onclick="saveclose()">+</div>
                             
                            <div class="sent">
-                 
-                                   <input type="text" placeholder="Month" id="sentmonth"><input type="text" placeholder="Year" id="sentyear">  <input type="text" placeholder="Date" id="sentdate"><br>
-                                   <input type="text" id="sentsub"><br>
-                                  <textarea id="sentcont"></textarea><br>
+                            {% for col in complains %}
+                                 Date &nbsp; <input type="text" placeholder="Month" id="sentmonth" value=" {{col.date}}" readonly><br>
+                                 Subject  &nbsp; <input type="text" id="sentsub" value=" {{col.complainname}}" readonly><br>
+                                  <textarea id="sentcont" readonly>{{col.message}}</textarea><br>
                                  <a href="/adminreply"><input type="submit" value="Reply" id="reply"></a>
-                              
+                              {% endfor %}
                             </div></div></div>
        
     </body>
 </html>
+
+<!--<input type="text" placeholder="Year" id="sentyear">  <input type="text" placeholder="Date" id="sentdate">-->

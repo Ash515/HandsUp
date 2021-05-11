@@ -38,10 +38,10 @@
                         <h3>Post your complaints</h3>
                         <div id="cancel" onclick="displayclose()">x</div>
                          <form action="/complain" method="POST" id="form">
-                             <input type="text" id="comp-date" name="complaint_name" placeholder="complain name"> <br>
-                             <input type="text" id="comp-date" name="student_mail" placeholder="Type your mail Id"><br>
-                             <textarea name="complaint_msg" id="comp-text" placeholder="Type your complain here"></textarea></textarea> <br>
-                             <input type="date" id="comp-date" name="complaint_date">
+                             <input type="text" id="comp-date" name="complaint_name" placeholder="complain name" required> <br>
+                             <input type="text" id="comp-date" name="student_mail" placeholder="Type your mail Id" required><br>
+                             <textarea name="complaint_msg" id="comp-text" placeholder="Type your complain here" required></textarea></textarea> <br>
+                             <input type="date" id="comp-date" name="complaint_date" required>
                              <input type="submit" id="submit" value="Send">
                             </form>
                      </div>
