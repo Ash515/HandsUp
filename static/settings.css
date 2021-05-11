@@ -58,3 +58,10 @@ body{
     display: table;
     clear: both;
   }
+#col2id{
+    padding-left: 20px;
+}
+#sent-cancel{
+    margin-left:590px;
+    margin-top: 10px;
+}

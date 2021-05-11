@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>{{session.u_name}}</title>
         <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='settings.css')}}">
     </head>
     <body>
         <div class="row">
-       
+           
         <div class="col1">
             <div class="main">
-                <h3 id="themes">Themes</h3>
-                <h3 id="help">Help</h3>
-                <h3 id="contact">Contact</h3>
+              <b>Step 1:</b> After successful login you can able to redirect to portal page. Add your profile details <b><i>carefully</i></b>.
             </div>
+            <div class="main">
+               <b>Step 2:</b> To post a complain click a <b><i>"Add Complaint"</i></b> tab and register your compaints.
+             </div>
+             <div class="main">
+                <b>Step 3:</b> To check the status of your complaint click <b><i>"Recieved Lists"</i></b> you can see your recieved files. 
+             </div>
         </div>
         <div class="col2">
-
-        </div>
+            <div id="sent-cancel"><a href="{{url_for('main')}}"><i class="fa fa-chevron-circle-left" style="font-size: 50px; "></i></a></div>
+            <div class="main" id="col2id">
+                <b>Step 4:</b> To check the sent items click <b><i>"Sent Lists</i></b>.
+              </div>
+              <div class="main" id="col2id">
+                 <b>Step 5:</b> To want to edit your profile go to top corner and click &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b><i>"Profiles"</i></b>.
+               </div>
+               <div class="main" id="col2id">
+                  <b>Step 6:</b> Logout when you complete the work . 
+               </div>
 
         </div>
     </body>
