@@ -79,7 +79,11 @@ ul{
 #sentmonth{
     width:150px;
     height:30px;
-    margin-right: 380px;
+    margin-right: 335px;
+}
+#brief{
+    margin-right: 530px;
+    margin-top: 10px;
 }
 /*#sentyear{
     width:150px;
@@ -111,4 +115,9 @@ ul{
     color:white;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     cursor:pointer;
+}
+textarea{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    padding:10px 10px 0px 10px;
 }

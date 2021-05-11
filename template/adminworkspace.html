@@ -28,9 +28,11 @@
                             
                            <div class="sent">
                             {% for col in complains %}
-                                 Date &nbsp; <input type="text" placeholder="Month" id="sentmonth" value=" {{col.date}}" readonly><br>
-                                 Subject  &nbsp; <input type="text" id="sentsub" value=" {{col.complainname}}" readonly><br>
-                                  <textarea id="sentcont" readonly>{{col.message}}</textarea><br>
+                                 <b>Date</b> &nbsp; &nbsp; <input type="text" placeholder="Month" id="sentmonth" value=" {{col.date}}" readonly><br>
+                                 <b>Subject </b> &nbsp; <input type="text" id="sentsub" value=" {{col.complainname}}" readonly><br>
+                                 <div id="brief"><i>Brief</i></div>
+                                 
+                                 <textarea id="sentcont" readonly>{{col.message}}</textarea><br>
                                  <a href="/adminreply"><input type="submit" value="Reply" id="reply"></a>
                               {% endfor %}
                             </div></div></div>
