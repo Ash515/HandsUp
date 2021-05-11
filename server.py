@@ -89,6 +89,10 @@ def userlogut():
 @app.route('/profile')
 def profile():
     return render_template('profile.html') 
+
+@app.route('/usersettings')
+def usersettings():
+    return render_template('settings.html') 
     
    
 @app.route('/aboutedit',methods=['POST','GET'])

@@ -1,0 +1,60 @@
+body{
+    background-color: rgba(0, 128, 0, 0.397);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.main{
+    background-color: white;
+    width:500px;
+    margin-left: 100px;
+    border-radius: 10px;
+   
+    margin-top: 80px;
+    padding: 20px 0px 30px 0px;
+}
+#themes{
+    background-color: rgba(0, 128, 0, 0.459);
+    margin:0px 20px 0px 20px;
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#help{
+    background-color: rgba(42, 167, 42, 0.459);
+    margin:10px 20px 0px 20px;
+    height: 30px;
+   
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+#contact{
+    background-color: rgba(0, 55, 128, 0.459);
+    margin:10px 20px 0px 20px;
+    height: 30px;
+    border-radius: 2px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.col1 {
+    float: left;
+    width:750px;
+    padding: 10px;
+    background-color: rgb(166, 144, 185);
+   text-align: center;
+    height:820px; /* Should be removed. Only for demonstration */
+   
+    background-size:cover;
+  }
+.col2{
+    background-color: rgba(0, 255, 242, 0.589);
+    float: right;
+    width:730px;
+    height:840px;
+    /* Should be removed. Only for demonstration */
+  }
+ .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
