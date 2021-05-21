@@ -150,7 +150,7 @@ def adminlogin():
         else:
             # Account doesnt exist or username/password incorrect
             message = 'Incorrect username/password!'
-        return render_template('adminlogin.html', message='')
+     return render_template('adminlogin.html', message='')
      
 
 @app.route('/adminregistration',methods=['POST','GET'])
@@ -189,7 +189,13 @@ def adminworkspace():
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM complains')
         complains=cursor.fetchall()
-        return render_template('adminworkspace.html', adminname=session['admin_email'],complains=complains)
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM complains')
+        complaindata = cursor.fetchall() #data from database
+        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM users')
+        users=cursor.fetchall()
+        return render_template('adminworkspace.html',complaindata=complaindata,users=users, adminname=session['admin_email'],complains=complains)
     else:
         return render_template('adminlogin.html')
   
@@ -209,7 +215,14 @@ def adminreply():
 
     return render_template('adminreply.html')
     
+@app.route('/notifications/<id>')
+def notifications(id):
+  
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM complains WHERE email= %s',(id,))
+    complaindata = cursor.fetchall() #data from database
     
+    return render_template("adminreply.html",complaindata=complaindata)
 
 
 

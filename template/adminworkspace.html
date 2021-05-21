@@ -11,14 +11,18 @@
             <div class="list">
                 
                 <ul id="lm" onclick="listclick()">
-                    {% for row in complains %}
-                    <li>
-                         Message from {{ row.email }}
-                    </li><br>
+                    {% for rw in complaindata %}
+                 <li>
+                      
+                         Message from {{ rw.email }}
+                      </li>
+                    <br>
        
 
                     {% endfor %}
                 </ul>
+                
+
                 
             </div>
         </div>
@@ -27,7 +31,9 @@
                             <div class="close" onclick="saveclose()">+</div>
                             
                            <div class="sent">
+                               
                             {% for col in complains %}
+
                                  <b>Date</b> &nbsp; &nbsp; <input type="text" placeholder="Month" id="sentmonth" value=" {{col.date}}" readonly><br>
                                  <b>Subject </b> &nbsp; <input type="text" id="sentsub" value=" {{col.complainname}}" readonly><br>
                                  <div id="brief"><i>Brief</i></div>
