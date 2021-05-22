@@ -12,9 +12,10 @@
                 
                 <ul id="lm" onclick="listclick()">
                     {% for rw in complaindata %}
-                 <li>
+                     <li><a href="/complains/{{rw.email}}">
                       
-                         Message from {{ rw.email }}
+                         Message from {{ rw.email }}   <a href="/delete/{{ rw.email }} "  id="delete">Delete</a>
+                         </a>
                       </li>
                     <br>
        
@@ -26,23 +27,7 @@
                 
             </div>
         </div>
-        <div class="about-model">
-            <div class="about-model-box">
-                            <div class="close" onclick="saveclose()">+</div>
-                            
-                           <div class="sent">
-                               
-                            {% for col in complains %}
-
-                                 <b>Date</b> &nbsp; &nbsp; <input type="text" placeholder="Month" id="sentmonth" value=" {{col.date}}" readonly><br>
-                                 <b>Subject </b> &nbsp; <input type="text" id="sentsub" value=" {{col.complainname}}" readonly><br>
-                                 <div id="brief"><i>Brief</i></div>
-                                 
-                                 <textarea id="sentcont" readonly>{{col.message}}</textarea><br>
-                                 <a href="/adminreply"><input type="submit" value="Reply" id="reply"></a>
-                              {% endfor %}
-                            </div></div></div>
-       
+    
     </body>
 </html>
 

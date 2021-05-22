@@ -214,7 +214,28 @@ def adminreply():
         return redirect(url_for('adminworkspace'))
 
     return render_template('adminreply.html')
+
+@app.route('/complains/<id>',methods=['GET','POST'])
+def complains(id):
     
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM complains WHERE email= %s',(id,))
+    complaindata = cursor.fetchall() #data from database
+    cur=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cur.execute('SELECT * FROM userprofile WHERE email= %s',(id,))
+    users=cur.fetchall()
+    return render_template('complainbox.html',complaindata=complaindata,users=users)
+
+@app.route('/delete/<id>',methods=['delete'])
+def delete(id):
+    cur=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cur.execute('Delete * FROM complains WHERE email= %s',(id,))
+    users=cur.fetchall()
+    return render_template('adminworkspace.html',users=users)
+
+
+
+'''
 @app.route('/notifications/<id>')
 def notifications(id):
   
@@ -223,9 +244,11 @@ def notifications(id):
     complaindata = cursor.fetchall() #data from database
     
     return render_template("adminreply.html",complaindata=complaindata)
+'''
 
 
-
+   
+   
 
    
 

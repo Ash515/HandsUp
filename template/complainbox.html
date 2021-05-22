@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>from</title>
+        <link rel="stylesheet" type="text/css" href="/static/complainbox.css">
+        <script src="/static/complainbox.js"></script>
+    </head>
+    <body>
+       <div class="row">
+           <div class="column1">
+            <div class="close" ><a href="{{url_for('adminworkspace')}}">+</a></div>
+            <div class="sent">
+                           {% for row in complaindata %}
+                           <div class="details">
+                           <b>Date</b>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="text" placeholder="Month" id="sentmonth" value="{{row.date}}" readonly><br>
+                             <b>Subject </b> &nbsp; <input type="text" id="sentsub" value="{{row.complainname}}" readonly><br>
+                             <div id="brief"><i>Brief</i></div>
+                             <textarea id="sentcont" value=""readonly> {{row.message}}</textarea><br>
+                             </div>
+                             <a href="/adminreply"><input type="submit" value="Reply" id="reply"></a>
+                        {% endfor %}
+                        </div>
+          
+            
+               </div>
+                        <div class="column2">
+                        <div id="profile-info">
+                        
+                         <h3>Profile Information</h3>
+                         {% for val in users %} 
+                         <div class="pro-main">
+                         <h3>{{ val.email }}</h3>
+                         <h3>{{ val.name }}</h3>
+                         <h3>{{ val.regno }}</h3>
+                         <h3>{{ val.dept }}</h3>
+                         </div>
+                          {% endfor %}
+                        </div>
+                        </div>
+                        </div>
+                           
+                       
+                           
+                           
+                        
+                        
+                    
+       
+    </body>
+</html>
