@@ -114,12 +114,14 @@ def aboutedit():
 @app.route('/complain',methods=['POST','GET'])
 def complain():
     if request.method=='POST':
+        studentid=request.form['complaint_id']
         studentemail=request.form['student_mail']
+        studentregno=request.form['student_regno']
         complaintname=request.form['complaint_name']
         complaintmessage=request.form['complaint_msg']
         complaintdate=request.form['complaint_date']
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('INSERT INTO complains VALUES(%s,%s,%s,%s)',(studentemail,complaintname,complaintmessage,complaintdate))
+        cursor.execute('INSERT INTO complains VALUES(%s,%s,%s,%s,%s,%s)',(studentid,studentemail,studentregno,complaintname,complaintmessage,complaintdate))
         mysql.connection.commit()
     return redirect(url_for('main'))
     
@@ -219,21 +221,25 @@ def adminreply():
 def complains(id):
     
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute('SELECT * FROM complains WHERE email= %s',(id,))
+    cursor.execute('SELECT * FROM complains WHERE id= %s',(id,))
     complaindata = cursor.fetchall() #data from database
     cur=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cur.execute('SELECT * FROM userprofile WHERE email= %s',(id,))
+    cur.execute('SELECT * FROM complains where id=%s',(id,))
     users=cur.fetchall()
+    
+   
     return render_template('complainbox.html',complaindata=complaindata,users=users)
-
-@app.route('/delete/<id>',methods=['delete'])
-def delete(id):
-    cur=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cur.execute('Delete * FROM complains WHERE email= %s',(id,))
-    users=cur.fetchall()
-    return render_template('adminworkspace.html',users=users)
-
-
+'''
+@app.route('/delete',methods=['GET','POST'])
+def delete():
+    if request.method=='POST':
+        val=request.form['aaashwin515@gmail.com']
+        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('Delete FROM complains WHERE email=%s',(val,))
+        delete= cursor.fetchall()
+    return render_template('adminworkspace.html',delete=delete)
+    #return redirect(url_for('adminworkspace',delete=delete))
+'''
 
 '''
 @app.route('/notifications/<id>')

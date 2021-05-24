@@ -12,10 +12,9 @@
                 
                 <ul id="lm" onclick="listclick()">
                     {% for rw in complaindata %}
-                     <li><a href="/complains/{{rw.email}}">
+                     <li><a href="/complains/{{rw.id}}">
                       
-                         Message from {{ rw.email }}   <a href="/delete/{{ rw.email }} "  id="delete">Delete</a>
-                         </a>
+                         Message from {{ rw.email }}   
                       </li>
                     <br>
        

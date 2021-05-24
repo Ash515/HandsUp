@@ -50,9 +50,23 @@ a{
     background-color:indigo;
     width:150px;
     height:50px;
+    font-size: 16px;
+    border-radius: 5px;
     margin-top: 20px;
-    margin-left: 250px;
+    margin-left: 150px;
     color:white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    cursor:pointer;
+}
+#delete{
+    background-color:rgba(130, 0, 22, 0.658);
+    width:150px;
+    height:50px;
+    margin-top: 20px;
+    margin-left: 50px;
+    color:white;
+    font-size: 16px;
+    border-radius: 5px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     cursor:pointer;
 }
@@ -104,7 +118,7 @@ textarea{
         border-radius: 10px;
     }
     .pro-main{
-        background-color: blue;
+        background-color: rgba(114, 114, 201, 0.24);
         margin-left: 10px;margin-right: 10px;
         padding-top: 20px;
         padding-bottom: 20px;
@@ -112,4 +126,7 @@ textarea{
     .pro-main h3{
         background-color:rgb(255, 255, 255);
         color: white;
+    }
+    .rep-del{
+        display: inline-flex;
     }
