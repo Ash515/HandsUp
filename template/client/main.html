@@ -65,13 +65,15 @@
                            <h3> Recieved Lists</h3>
                             <div id="sent-cancel" onclick="displayclose()">x</div>
                             <ul>
+                                {% for row in adminreply %}
                                 <li>  
                                    <div class="recievedlist">
-                                   <b>Date:</b> <br>
-                                    <b>From:</b><br>
-                                    <b>Message:</b><br>
+                                   <b>Date:{{row.date}}</b> <br>
+                                    <b>Subject:{{row.subject}}</b><br>
+                                    <b>Message:{{row.message}}</b><br>
                                    </div>
                                    </li>
+                                   {% endfor %}
                                  </ul>
                             </div>
                         </div>

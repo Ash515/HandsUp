@@ -14,15 +14,17 @@ mysql=MySQL(app)
 
 @app.route('/')
 def index():
-  return render_template('index.html')
+  return render_template('/client/index.html')
 
 @app.route('/main')
 def main():
      if 'loggedin' in session:
-         return render_template('main.html', usermail=session['u_name'])
-     
+         return render_template('/client/main.html', usermail=session['u_name'])
+     cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+     cursor.execute('SELECT * FROM replymessage WHERE email= %s ', ("aaashwin515@gmail.com"))
+     adminreply=cursor.fetchall()
     # User is not loggedin redirect to login page
-     return render_template('userlogin.html')
+     return render_template('userlogin.html',adminreply=adminreply)
 
 @app.route('/userlogin',methods=['POSt','GET'])
 def userlogin():
@@ -43,7 +45,7 @@ def userlogin():
         else:
             # Account doesnt exist or username/password incorrect
             message = 'Incorrect username/password!'
-    return render_template('login.html', message='')
+    return render_template('/client/login.html', message='')
     
 
 
@@ -75,12 +77,12 @@ def userregistration():
             mysql.connection.commit()
             msg = 'You have successfully registered!'
             #after successfully inserted redirect to loginpage
-            return render_template('login.html')  
+            return render_template('/client/login.html')  
      elif request.method == 'POST':
         # Form is empty... (no POST data)
         msg = 'Please fill out the form!'
     # Show registration form with message (if any)
-     return render_template('signup.htm', msg=msg)
+     return render_template('/client/signup.htm', msg=msg)
 @app.route('/userlogout')
 def userlogut():
    session.pop('u_name')
@@ -88,11 +90,11 @@ def userlogut():
 
 @app.route('/profile')
 def profile():
-    return render_template('profile.html') 
+    return render_template('/client/profile.html') 
 
 @app.route('/usersettings')
 def usersettings():
-    return render_template('settings.html') 
+    return render_template('/client/settings.html') 
     
    
 @app.route('/aboutedit',methods=['POST','GET'])
@@ -131,7 +133,7 @@ def complain():
 @app.route('/adminindex')
 def adminindex():
    
-    return render_template('admin.html')
+    return render_template('/admin/admin.html')
     
 
 @app.route('/adminlogin',methods=['POST','GET'])
@@ -152,7 +154,7 @@ def adminlogin():
         else:
             # Account doesnt exist or username/password incorrect
             message = 'Incorrect username/password!'
-     return render_template('adminlogin.html', message='')
+     return render_template('/admin/adminlogin.html', message='')
      
 
 @app.route('/adminregistration',methods=['POST','GET'])
@@ -177,13 +179,13 @@ def adminregistration():
             mysql.connection.commit()
             msg = 'You have successfully registered!'
             #after successfully inserted redirect to loginpage
-            return render_template('adminlogin.html')  
+            return render_template('/admin/adminlogin.html')  
     elif request.method == 'POST':
         # Form is empty... (no POST data)
         msg = 'Please fill out the form!'
     # Show registration form with message (if any)
-        return render_template('adminsignup.html', msg=msg)
-    return render_template('adminsignup.html')
+        return render_template('admin/adminsignup.html', msg=msg)
+    return render_template('admin/adminsignup.html')
 
 @app.route('/workspace')
 def adminworkspace():
@@ -197,9 +199,9 @@ def adminworkspace():
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM users')
         users=cursor.fetchall()
-        return render_template('adminworkspace.html',complaindata=complaindata,users=users, adminname=session['admin_email'],complains=complains)
+        return render_template('admin/adminworkspace.html',complaindata=complaindata,users=users, adminname=session['admin_email'],complains=complains)
     else:
-        return render_template('adminlogin.html')
+        return render_template('admin/adminlogin.html')
   
 @app.route('/complains/<id>',methods=['GET','POST'])
 def complains(id):
@@ -209,7 +211,7 @@ def complains(id):
     cur=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cur.execute('SELECT * FROM complains where id=%s',(id,))
     users=cur.fetchall()
-    return render_template('complainbox.html',complaindata=complaindata,users=users)
+    return render_template('/client/complainbox.html',complaindata=complaindata,users=users)
 
 @app.route('/replying',methods=['POST','GET'])
 def replying():
