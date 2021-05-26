@@ -1,15 +1,7 @@
 a{
     text-decoration: none;
 }
-.close{
-    position: relative;
-    top:0;
-    left:340px;
-    font-size:42px;
-    transform:rotate(45deg);
-    cursor: pointer;
-    
-}
+
 
 
 #sentmonth{
@@ -89,7 +81,7 @@ textarea{
     width:750px;
     padding: 10px;
     height:690px; /* Should be removed. Only for demonstration */
-   background-color: rgb(6, 5, 43);
+   background-color: rgb(183, 182, 212);
    color:white;
     background-size:cover;
   }
@@ -99,10 +91,11 @@ textarea{
     clear: both;
   }
   #profile-info{
-      margin-left: 200px;
+      margin-left: 130px;
+      width:500px;
       background-color: white;
       height: 500px;
-      color:  rgb(13, 14, 73);
+      color:  rgb(72, 74, 185);
       margin-right: 200px;
       border-radius: 10px;
       text-align: center;
@@ -130,3 +123,86 @@ textarea{
     .rep-del{
         display: inline-flex;
     }
+    #comp-id{
+        padding-right: 200px;
+    }
+    #email-id{
+        padding-right: 90px;
+    }
+    #reg-id{
+        padding-right: 120px;
+    }
+    .comp-reply{
+        display: none;
+       
+    }
+    .sent{
+        padding-top: 50px;
+    }
+    
+    
+    .close{
+        
+       background-color: black;
+       
+        padding-left: 550px;
+        font-size:42px;
+        /*transform:rotate(8deg);*/
+        cursor: pointer;
+        
+    }
+    form{
+        padding-top:30px;
+        margin-left: 100px;
+        border-color: black;
+    }
+    #repsentmonth{
+        border-color: rgb(241, 27, 27);
+        width:150px;
+        height:30px;
+        border-radius: 5px;
+    }
+    #repsentyear{
+        border-color: rgb(241, 27, 27);
+        width:150px;
+        height:30px;
+        margin-left:50px;
+        border-radius: 5px;
+    }
+    #repsentdate{
+        border-color: rgb(241, 27, 27);
+        width:150px;
+        height:30px;
+        margin-left:50px;
+        border-radius: 5px;
+    }
+    #repsentsub{
+        border-radius: 5px;
+        border-color: rgb(241, 27, 27);
+        margin-top: 20px;
+        width:570px;
+        height:30px;
+    }
+    #repsentcont{
+        border-radius: 5px;
+        border-color: rgb(241, 27, 27);
+        margin-top: 20px;
+        width:570px;
+        height:250px;
+    }
+    #sending{
+        margin-top: 30px;
+        background-color: rgb(236, 29, 63);
+        color:white;
+        font-size: 18px;
+        margin-left:200px;
+        width:150px;
+        height: 50px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    #sending:hover{
+        background-color: blue;
+        color:white;
+    }
+    

@@ -10,7 +10,7 @@
     <body>
        <div class="row">
            <div class="column1">
-            <div class="close" ><a href="{{url_for('adminworkspace')}}">+</a></div>
+
             <div class="sent">
                            {% for row in complaindata %}
                            <div class="details">
@@ -20,7 +20,7 @@
                              <textarea id="sentcont" value=""readonly> {{row.message}}</textarea><br>
                              </div>
                              <div class="rep-del">
-                             <a href="/adminreply"><input type="submit" value="Reply" id="reply"></a>
+                             <input type="submit" value="Reply" onclick="reply()" id="reply"></a>
                              
                              {% endfor %}
                         <div class="rep-del">
@@ -40,13 +40,33 @@
                          <h3>Profile Information</h3>
                          {% for val in users %} 
                          <div class="pro-main">
-                         <h3>{{ val.email }}</h3>
-                         <h3>{{ val.id }}</h3>
-                         <h3>{{ val.regno }}</h3>
+                         <h3 id="email-id"><font color="indigo">Email:&nbsp;&nbsp;&nbsp;</font>{{ val.email }}</h3>
+                         <h3 id="comp-id"><font color="indigo">Complain ID:</font>&nbsp;&nbsp;&nbsp;{{ val.id }}</h3>
+                         <h3 id="reg-id"><font color="indigo">Registration ID: </font>{{ val.regno }}</h3>
                          
                          </div>
                           {% endfor %}
                         </div>
+                      <div class="comp-reply">
+                       
+                        <div class="repsent">
+                          
+                          <form action="/adminreply" method="POST"> 
+                           
+                            <div class="close" onclick="saveclose()">+</div>     
+                          <input type="text" name="rep_date" placeholder="Date" id="repsentmonth"><input type="text" name="rep_month" placeholder="Month" id="repsentyear">  <input type="text" name="rep_year" placeholder="Year" id="repsentdate"><br>
+                          <input type="text" name="rep_subject" placeholder="Subject" id="repsentsub"><br>
+                         <textarea id="repsentcont" name="rep_message" placeholder="Message"></textarea><br>
+                         <input type="submit" value="Send" id="sending">
+                         </form>
+                   </div>
+                      </div>
+
+
+
+
+
+
                         </div>
                         </div>
                            
