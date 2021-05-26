@@ -8,9 +8,11 @@
     </head>
     <body>
         <div class="header">
+            {% for i in user %}
             <h3>
-                Hi {{session.u_name}} !  <a href="#" onclick="mainnavbar()"><i class="fa fa-bars"></i></a>
+                Hi {{i.name}} !  <a href="#" onclick="mainnavbar()"><i class="fa fa-bars"></i></a>
             </h3>
+            {% endfor %}
         </div>
       
        <div class="row">
@@ -68,9 +70,9 @@
                                 {% for row in adminreply %}
                                 <li>  
                                    <div class="recievedlist">
-                                   <b>Date:{{row.date}}</b> <br>
-                                    <b>Subject:{{row.subject}}</b><br>
-                                    <b>Message:{{row.message}}</b><br>
+                                   <b>Date: {{row.date}}</b> <br>
+                                    <b>Subject: {{row.subject}}</b><br>
+                                    <b>Message: {{row.message}}</b><br>
                                    </div>
                                    </li>
                                    {% endfor %}

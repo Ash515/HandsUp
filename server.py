@@ -19,28 +19,33 @@ def index():
 @app.route('/main')
 def main():
      if 'loggedin' in session:
-         return render_template('/client/main.html', usermail=session['u_name'])
-     cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-     cursor.execute('SELECT * FROM replymessage WHERE email= %s ', ("aaashwin515@gmail.com"))
-     adminreply=cursor.fetchall()
+         email=session['u_email']
+         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+         cursor.execute('SELECT * FROM replymessage WHERE email= %s ', (email,))
+         adminreply=cursor.fetchall()
+         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+         cursor.execute('SELECT * FROM users WHERE email= %s ', (email,))
+         user=cursor.fetchall()
+         return render_template('/client/main.html', usermail=session['u_email'],adminreply=adminreply,user=user)
+     
     # User is not loggedin redirect to login page
-     return render_template('userlogin.html',adminreply=adminreply)
+     return render_template('userlogin.html')
 
 @app.route('/userlogin',methods=['POSt','GET'])
 def userlogin():
    
     if request.method=='POST':
         message="Please fill the login "
-        username=request.form['u_name']
+        useremail=request.form['u_email']
         userpassword=request.form['u_psw']
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM users WHERE name = %s AND password = %s', (username, userpassword))
+        cursor.execute('SELECT * FROM users WHERE email = %s AND password = %s', (useremail, userpassword))
         user=cursor.fetchone()
 
         if user:
             session['loggedin'] = True
             session['u_psw'] = user['password']
-            session['u_name'] = user['name']
+            session['u_email'] = user['email']
             return redirect(url_for('main'))
         else:
             # Account doesnt exist or username/password incorrect
@@ -85,7 +90,7 @@ def userregistration():
      return render_template('/client/signup.htm', msg=msg)
 @app.route('/userlogout')
 def userlogut():
-   session.pop('u_name')
+   session.pop('u_email')
    return redirect(url_for('index'))
 
 @app.route('/profile')
