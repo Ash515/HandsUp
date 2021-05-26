@@ -201,25 +201,8 @@ def adminworkspace():
     else:
         return render_template('adminlogin.html')
   
-''' 
-@app.route('/adminreply',methods=['GET','POST'])
-def adminreply():
-    if request.method=='POST':
-        replydate=request.form['rep_date']
-        replymonth=request.form['rep_month']
-        replyyear=request.form['rep_year']
-        replysubject=request.form['rep_subject']
-        replymessage=request.form['rep_message']
-        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('INSERT INTO adminreply VALUES(%s,%s,%s,%s,%s)',(replydate,replymonth,replyyear,replysubject,replymessage))
-        cursor.connection.commit()
-        return redirect(url_for('adminworkspace'))
-
-    return render_template('adminreply.html')
-'''
 @app.route('/complains/<id>',methods=['GET','POST'])
 def complains(id):
-    
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * FROM complains WHERE id= %s',(id,))
     complaindata = cursor.fetchall() #data from database
@@ -235,13 +218,9 @@ def replying():
         adminreplyemail=request.form['rep_email']
         adminreplysubject=request.form['rep_subject']
         adminreplymessage=request.form['rep_message']
-
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('INSERT INTO replymessage VALUES(%s,%s,%s,%s)',(adminreplydate,adminreplyemail,adminreplysubject,adminreplymessage,))
         cursor.connection.commit()
-
-        
-
     return redirect(url_for('sent'))
 
 @app.route('/sent')

@@ -105,10 +105,13 @@ h3{
     width:570px;
     height:250px;
 }
+#close-x{
+  display: inline-flex;
+}
         </style>
     </head>
     <body>
-        <h3>Recieved Items</h3>
+      <div id="close-x"><h3>Recieved Items</h3> </div><div class="close" id="close-x"  onclick="saveclose()">+</div>
         <div class="main">
             <div class="list">
                 <ul id="lm" onclick="recievelistclick()">
@@ -117,8 +120,8 @@ h3{
             </div>
         </div>
         <div class="about-model">
-            <div class="about-model-box">
-                            <div class="close" onclick="saveclose()">close</div>
+            <div class="about-model-box" >
+                           
                             
                            <div class="sent">
                                
