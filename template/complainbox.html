@@ -53,11 +53,11 @@
                           
                           <form action="/adminreply" method="POST"> 
                            
-                            <div class="close" onclick="saveclose()">+</div>     
+                               
                           <input type="text" name="rep_date" placeholder="Date" id="repsentmonth"><input type="text" name="rep_month" placeholder="Month" id="repsentyear">  <input type="text" name="rep_year" placeholder="Year" id="repsentdate"><br>
                           <input type="text" name="rep_subject" placeholder="Subject" id="repsentsub"><br>
                          <textarea id="repsentcont" name="rep_message" placeholder="Message"></textarea><br>
-                         <input type="submit" value="Send" id="sending">
+                         <input type="submit" value="Send" id="sending"><input type="button" class="close" onclick="saveclose()" value="Back">
                          </form>
                    </div>
                       </div>

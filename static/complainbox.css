@@ -8,6 +8,7 @@ a{
     width:150px;
     height:30px;
     margin-right: 335px;
+    color: indigo;
 }
 .details{
     margin-left: 30px;
@@ -15,17 +16,9 @@ a{
 #brief{
     margin-right: 530px;
     margin-top: 10px;
+    
 }
-/*#sentyear{
-    width:150px;
-    height:30px;
-    margin-left:50px;
-}
-#sentdate{
-    width:150px;
-    height:30px;
-    margin-left:50px;
-}*/
+
 #sentsub{
     margin-top: 20px;
     margin-right: 100px;
@@ -45,10 +38,13 @@ a{
     font-size: 16px;
     border-radius: 5px;
     margin-top: 20px;
-    margin-left: 150px;
+    margin-left: 250px;
     color:white;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     cursor:pointer;
+}
+#reply:hover{
+    background-color: rgba(6, 6, 68, 0.493);
 }
 #delete{
     background-color:rgba(130, 0, 22, 0.658);
@@ -141,15 +137,21 @@ textarea{
     }
     
     
+   
     .close{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         
-       background-color: black;
-       
-        padding-left: 550px;
-        font-size:42px;
-        /*transform:rotate(8deg);*/
+        background-color: rgb(38, 24, 75);
+        color:white;
+        font-size: 18px;
+        margin-left:30px;
+        width:150px;
+        height: 50px;
+        border-radius: 10px;
         cursor: pointer;
-        
+    }
+    .close:hover{
+        background-color: rgba(8, 8, 43, 0.267);
     }
     form{
         padding-top:30px;
@@ -192,10 +194,10 @@ textarea{
     }
     #sending{
         margin-top: 30px;
-        background-color: rgb(236, 29, 63);
+        background-color: rgba(99, 12, 19, 0.596);
         color:white;
         font-size: 18px;
-        margin-left:200px;
+        margin-left:150px;
         width:150px;
         height: 50px;
         border-radius: 10px;
