@@ -229,37 +229,11 @@ def complains(id):
     
    
     return render_template('complainbox.html',complaindata=complaindata,users=users)
-'''
-@app.route('/delete',methods=['GET','POST'])
-def delete():
-    if request.method=='POST':
-        val=request.form['aaashwin515@gmail.com']
-        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('Delete FROM complains WHERE email=%s',(val,))
-        delete= cursor.fetchall()
-    return render_template('adminworkspace.html',delete=delete)
-    #return redirect(url_for('adminworkspace',delete=delete))
-'''
 
-'''
-@app.route('/notifications/<id>')
-def notifications(id):
-  
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute('SELECT * FROM complains WHERE email= %s',(id,))
-    complaindata = cursor.fetchall() #data from database
-    
-    return render_template("adminreply.html",complaindata=complaindata)
-'''
 
 
    
    
-
-   
-
-
-
 if __name__=='__main__':
     app.debug=True
     app.run()
