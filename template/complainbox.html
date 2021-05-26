@@ -14,13 +14,13 @@
             <div class="sent">
                            {% for row in complaindata %}
                            <div class="details">
-                           <b>Date</b>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="text" placeholder="Month" id="sentmonth" value="{{row.date}}" readonly><br>
+                           <b>Date</b>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="text" placeholder="Month" id="sentdate" value="{{row.date}}" readonly><br>
                              <b>Subject </b> &nbsp; <input type="text" id="sentsub" value="{{row.complainname}}" readonly><br>
                              <div id="brief"><i>Brief</i></div>
                              <textarea id="sentcont" value=""readonly> {{row.message}}</textarea><br>
                              </div>
                              <div class="rep-del">
-                             <input type="submit" value="Reply" onclick="reply()" id="reply"></a>
+                             <input type="submit" value="Reply" onclick="reply()" id="reply"></a><a href="{{url_for('adminworkspace')}}"><input type="button" class="col1-close"  value="Back"></a>
                              
                              {% endfor %}
                         <div class="rep-del">
@@ -37,7 +37,7 @@
                         <div class="column2">
                         <div id="profile-info">
                         
-                         <h3>Profile Information</h3>
+                         <h3>Student Information</h3>
                          {% for val in users %} 
                          <div class="pro-main">
                          <h3 id="email-id"><font color="indigo">Email:&nbsp;&nbsp;&nbsp;</font>{{ val.email }}</h3>
@@ -57,7 +57,7 @@
                           <input type="text" name="rep_date" placeholder="Date" id="repsentmonth"><input type="text" name="rep_month" placeholder="Month" id="repsentyear">  <input type="text" name="rep_year" placeholder="Year" id="repsentdate"><br>
                           <input type="text" name="rep_subject" placeholder="Subject" id="repsentsub"><br>
                          <textarea id="repsentcont" name="rep_message" placeholder="Message"></textarea><br>
-                         <input type="submit" value="Send" id="sending"><input type="button" class="close" onclick="saveclose()" value="Back">
+                         <input type="submit" value="Send" id="sending"><input type="button" class="col2-close" onclick="saveclose()" value="Back">
                          </form>
                    </div>
                       </div>
