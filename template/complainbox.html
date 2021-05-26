@@ -26,9 +26,7 @@
                         <div class="rep-del">
                             
                           
-                <!--   <form action="/delete/" method="POST">
-                      <input type="submit" value="Delete" name="" id="delete">
-                      </form> --> 
+              
                     </div>
                 </div></div>
           
@@ -51,13 +49,13 @@
                        
                         <div class="repsent">
                           
-                          <form action="/adminreply" method="POST"> 
-                           
+                          <form action="/replying" method="POST"> 
+                           <h3 id="reply-topic">Reply</h3>
                                
-                          <input type="text" name="rep_date" placeholder="Date" id="repsentmonth"><input type="text" name="rep_month" placeholder="Month" id="repsentyear">  <input type="text" name="rep_year" placeholder="Year" id="repsentdate"><br>
-                          <input type="text" name="rep_subject" placeholder="Subject" id="repsentsub"><br>
-                         <textarea id="repsentcont" name="rep_message" placeholder="Message"></textarea><br>
-                         <input type="submit" value="Send" id="sending"><input type="button" class="col2-close" onclick="saveclose()" value="Back">
+                          <input type="date" name="rep_date" placeholder="Date" id="repsentmonth" required> <input type="text" name="rep_email" placeholder="Email" id="repsentemail" required><br>
+                          <input type="text" name="rep_subject" placeholder="Subject" id="repsentsub" required><br>
+                         <textarea id="repsentcont" name="rep_message" placeholder="Message" required></textarea><br>
+                       <input type="submit" value="Send" id="sending"><input type="button" class="col2-close" onclick="saveclose()" value="Back">
                          </form>
                    </div>
                       </div>

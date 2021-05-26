@@ -201,7 +201,7 @@ def adminworkspace():
     else:
         return render_template('adminlogin.html')
   
-  
+''' 
 @app.route('/adminreply',methods=['GET','POST'])
 def adminreply():
     if request.method=='POST':
@@ -216,7 +216,7 @@ def adminreply():
         return redirect(url_for('adminworkspace'))
 
     return render_template('adminreply.html')
-
+'''
 @app.route('/complains/<id>',methods=['GET','POST'])
 def complains(id):
     
@@ -226,12 +226,27 @@ def complains(id):
     cur=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cur.execute('SELECT * FROM complains where id=%s',(id,))
     users=cur.fetchall()
-    
-   
     return render_template('complainbox.html',complaindata=complaindata,users=users)
 
+@app.route('/replying',methods=['POST','GET'])
+def replying():
+    if request.method=='POST':
+        adminreplydate=request.form['rep_date']
+        adminreplyemail=request.form['rep_email']
+        adminreplysubject=request.form['rep_subject']
+        adminreplymessage=request.form['rep_message']
 
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('INSERT INTO replymessage VALUES(%s,%s,%s,%s)',(adminreplydate,adminreplyemail,adminreplysubject,adminreplymessage,))
+        cursor.connection.commit()
 
+        
+
+    return redirect(url_for('sent'))
+
+@app.route('/sent')
+def sent():
+    return render_template('notification.html')
    
    
 if __name__=='__main__':

@@ -157,15 +157,24 @@ textarea{
         margin-left: 100px;
         border-color: black;
     }
+    #reply-topic{
+        background-color: rgb(54, 54, 102);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        width:250px;
+        height: 30px;
+        padding-top: 5px;
+        border-radius: 20px;
+        padding-left: 20px;
+    }
     #repsentmonth{
         border-color: rgb(241, 27, 27);
         width:150px;
         height:30px;
         border-radius: 5px;
     }
-    #repsentyear{
+    #repsentemail{
         border-color: rgb(241, 27, 27);
-        width:150px;
+        width:360px;
         height:30px;
         margin-left:50px;
         border-radius: 5px;
