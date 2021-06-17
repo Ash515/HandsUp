@@ -29,7 +29,10 @@ def main():
          cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
          cursor.execute('SELECT * FROM complains WHERE email= %s ', (email,))
          usercomplain=cursor.fetchall()
-         return render_template('/client/main.html', usermail=session['u_email'],adminreply=adminreply,user=user,usercomplain=usercomplain)
+         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+         cursor.execute('SELECT * FROM complains')
+         complainid=cursor.fetchall()
+         return render_template('/client/main.html', usermail=session['u_email'],adminreply=adminreply,user=user,usercomplain=usercomplain,complainid=complainid)
      
     # User is not loggedin redirect to login page
      return render_template('userlogin.html')

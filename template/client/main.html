@@ -14,19 +14,14 @@
             </h3>
             {% endfor %}
         </div>
-      
-       <div class="row">
-         
+        <div class="row">
                 <div class="column1">
                 <h3 id="add-complain" onclick="displayaddcomplain()">Add Complaint</h3>      
                 <h3 id="sent-items" onclick="displaysentitems()">Sent Items</h3>  
                 <h3 id="recieved-items" onclick="displayrecievedsitems()">Recieved Items</h3>          
                 </div>
                 <div class="column2">
-
-
-                   
-                    <div class="image" onclick="imageclose()">
+                <div class="image" onclick="imageclose()">
                         &nbsp;
                        
                         <div class="nav-bar">
@@ -40,13 +35,20 @@
                         <h3>Post your complaints</h3>
                         <div id="cancel" onclick="displayclose()">x</div>
                          <form action="/complain" method="POST" id="form">
+                            {% for row in complainid %}
                              <input type="text" id="comp-date" name="complaint_name" placeholder="complain name" required> <br>
                              <input type="text" id="comp-date" name="student_mail" placeholder="Type your mail Id" required><br>
                              <input type="text" id="comp-date" name="student_regno" placeholder="Registration Number" required><br>
-                             <input type="text" id="comp-date" name="complaint_id" placeholder="Enter a five digit id" required> <br>
+                             
+                             <div class="buttonIn">
+                                <input type="text" id="code" name="complaint_id" placeholder=" Click button to generate unique code" readonly required>
+                                <h3 id="code-but" onclick="codegenerator()">Click</h3>
+                            </div>
                              <textarea name="complaint_msg" id="comp-text" placeholder="Type your complain here" required></textarea></textarea> <br>
                              <input type="date" id="comp-date" name="complaint_date" required>
                              <input type="submit" id="submit" value="Send">
+                             {% endfor %}
+                             
                             </form>
                      </div>
 
@@ -93,67 +95,5 @@
                         </div>
                     </div>
            </div>
-          
-       
-       
-
-        <!--
-                    <div class="about-model">
-           
-            <div class="about-model-box">
-              
-                            <div class="close" onclick="closing()">+</div>
-                            <div id="abtplus"><a href="/aboutedit">+</a></div>
-                              
-                                <div class="aboutform">
-                                
-                                <input type="text" size="20px" id="abtname"  ><br>
-                             <input type="text" size="20px" id="abtreg"  ><br>
-                                
-                                     <input type="text" size="20px"  id="abtdept" ><br>
-                             <input type="text" size="20px" id="abtclg" ><br>
-                             <input type="text" size="20px"  id="abtbatch" ><br>
-                             
-                            </div>
-
-                            </div>
-                        </div>
-        
-   <!--     <div class="addcomplain-model">
-        <div class="addcomplain-model-box">
-         <div class="close" onclick="closing()">+</div>
-           <div id="abtplus"><a href="aboutedit.html">+</a></div>
-             <form id="about-form" method="post" action="#">
-               <div class="aboutform">
-             <input type="text" size="20px" id="abtname"  ><br>
-            <input type="text" size="20px" id="abtreg"  ><br>
-            <input type="text" size="20px"  id="abtdept" ><br>
-            <input type="text" size="20px" id="abtclg" ><br>
-            <input type="text" size="20px"  id="abtbatch" ><br>                                     
-            </div></form>                                                                       
-             </div></div>
-            -->     
-   
-
-
-              
-
-
-
-                
-   
-
-
-
-
-
-
-
-
-       
-            
-            
-
-   
-    </body>
+         </body>
 </html>

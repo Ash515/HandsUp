@@ -247,6 +247,23 @@ li{
     height:35px;
     margin-top: 20px;
 }
+#code{
+    width:350px;
+    border-radius: 10px;
+    height:39px;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+#code-but{
+    width:80px;
+    height:35px; 
+    padding-top: 5px;
+        background-color: rgba(31, 116, 94, 0.5); 
+    cursor: pointer;  
+}
+#code-but:hover{
+    background-color: rgba(31, 116, 93, 0.685);
+}
 textarea{
     height: 60px;
     width:500px;
@@ -461,73 +478,32 @@ margin-right: 50px;
     padding-left: 30px;
     border-radius: 5px;
 }
-
-/*.about-model{
-    width:100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    position: absolute;
-    top:0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display:none;
+.buttonIn {
+    width: 300px;
+    position: relative;
+}
+input {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    outline: none;
+    height: 30px;
+    border-radius: 5px;
+}
+.buttonIn h3{
     
-
+        position: absolute;
+        top: 0;
+        border-radius: 5px;
+        left: 380px;
+        z-index: 1;
+        border: none;
+    
+        top: 5px;
+        height: 30px;
+        cursor: pointer;
+        color: white;
+        background-color: #1e90ff;
+        transform: translateX(5px);
+    
 }
-.about-model-box{
-    width: 800px;
-    height: 650px;
-    background-color:white;
-    border-radius: 4px;
-    text-align:center;
-    padding:20px;
-}
-.aboutform{
-   align-items: center;
-}
-#abtname{
-    width:350px;
-    height: 30px;
-    margin-top: 30px;
-    border-color: indigo;
-}
-#abtreg{
-    width:350px;
-    height: 30px;
-    margin-top: 10px;
-    border-color: indigo;
-}
-#abtclg{
-    width:350px;
-    height: 30px;
-    margin-top: 10px;
-    border-color: indigo;
-}
-#abtdept{
-    width:350px;
-    height: 30px;
-    margin-top: 10px;
-    border-color: indigo;
-}
-#abtbatch{
-    width:350px;
-    height: 30px;
-    margin-top: 10px;
-    border-color: indigo;
-}
-#abtsubmit{
-    width:100px;
-    height: 30px;
-    margin-top: 30px;
-    background-color: rgb(42, 133, 65);
-    cursor: pointer;
-    color: white;
-}
-.about-model-box a{
-    text-decoration: none;
-}
-#abtplus{
-    margin-left:680px;
-    font-size:42px;
-}*/

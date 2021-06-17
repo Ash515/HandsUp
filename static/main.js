@@ -1,3 +1,4 @@
+
 function aboutclick(){
     document.getElementById('about');
     document.querySelector('.about-model').style.display="flex";
@@ -122,6 +123,10 @@ function imageclose(){
     var a=document.querySelector('.nav-bar').style.display="none";
    
 } 
+function codegenerator() {
+    var x = document.getElementById("code")
+    x.value = Math.floor((Math.random() * 2000) +1);
+  }
 
 
 
