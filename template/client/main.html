@@ -53,30 +53,42 @@
                      <div class="sent-items" >
                         <h3> Sent Lists</h3>
                         <div id="sent-cancel" onclick="displayclose()">x</div>
+                        <div class="sent" >
+                            {% for row in usercomplain %}
                         <ul>
                             <li>  
                                <div class="sentlist">
-                               <b>Date:</b> <br>
-                                <b>Complain Name:</b><br>
-                                <b>Message:</b><br>
+                               <b>Date:</b> {{row.date}} <br>
+                                <b>Complain Name:</b> {{row.complainname}}</b><br>
+                                <b>Message:</b> {{row.message}}<br>
                                </div>
+                               </li><br>
+                               
+                                
+                                    
                              </ul>
+                             {% endfor %}
+                             </div>
                         </div>
 
                         <div class="recieved-items" >
                            <h3> Recieved Lists</h3>
-                            <div id="sent-cancel" onclick="displayclose()">x</div>
+                           <div id="sent-cancel" onclick="displayclose()">x</div>
+                           <div class="recieved" >
+                           
                             <ul>
                                 {% for row in adminreply %}
                                 <li>  
                                    <div class="recievedlist">
-                                   <b>Date: {{row.date}}</b> <br>
-                                    <b>Subject: {{row.subject}}</b><br>
-                                    <b>Message: {{row.message}}</b><br>
+                                   <b>Date:</b> {{row.date}} <br>
+                                    <b>Subject:</b> {{row.subject}}<br>
+                                    <b>Message:</b> {{row.message}}<br>
                                    </div>
-                                   </li>
+                                   </li><br>
+                                   
                                    {% endfor %}
                                  </ul>
+                           </div>
                             </div>
                         </div>
                     </div>

@@ -218,7 +218,7 @@ li{
     padding: 10px;
     background-color: rgba(90, 35, 52, 0.329);
    text-align: center;
-    height:820px; /* Should be removed. Only for demonstration */
+    height:700px; /* Should be removed. Only for demonstration */
    
     background-size:cover;
   }
@@ -226,7 +226,7 @@ li{
     background-color: rgba(0, 255, 242, 0.589);
     float: right;
     width:730px;
-    height:840px;
+    height:700px;
     /* Should be removed. Only for demonstration */
   }
  .row:after {
@@ -237,7 +237,7 @@ li{
   .image{
       display: block;
     background-size:cover;
-    height:840px;
+    height:720px;
     background-image:url('/static/images/adminlogin.jpg');
   }
 
@@ -300,6 +300,22 @@ textarea::placeholder{
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+}
+.recieved-cancel{
+    margin-left: 350px;
+    background-color: rgba(0, 0, 0, 0.589);
+    color: white;
+    width: 30px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 20px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#rec{
+    display: inline-flex;
 }
 #sent-cancel:hover{
     background-color: rgba(0, 0, 0, 0.37);
@@ -382,14 +398,28 @@ textarea::placeholder{
     display: none;
     margin-left:10px;
     margin-top: 50px;
+    
 
 }
+div.recieved {
+    background-color: lightblue;
+    width: 710px;
+    height: 600px;
+    overflow: auto;
+  }
+  div.sent {
+    background-color: lightblue;
+    width: 710px;
+    height: 600px;
+    overflow: auto;
+  }
 .recievedlist{
 background-color: white;
 height:100px;
+padding-top: 20px;
 margin-right: 50px;
 padding-left: 30px;
-padding-top: 20px;
+
 cursor: pointer;
 border-radius: 10px;
 font-size: 16px;

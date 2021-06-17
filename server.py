@@ -9,7 +9,7 @@ app.secret_key="key"
 app.config['MYSQL_HOST']="localhost"
 app.config['MYSQL_USER']="root"
 app.config['MYSQL_PASSWORD']=""
-app.config['MYSQL_DB']="crimeportal"
+app.config['MYSQL_DB']="handsup"
 mysql=MySQL(app)
 
 @app.route('/')
@@ -20,18 +20,21 @@ def index():
 def main():
      if 'loggedin' in session:
          email=session['u_email']
-         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-         cursor.execute('SELECT * FROM replymessage WHERE email= %s ', (email,))
-         adminreply=cursor.fetchall()
+         cur=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+         cur.execute('SELECT * FROM replymessage where email=%s',(email,))
+         adminreply=cur.fetchall()
          cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
          cursor.execute('SELECT * FROM users WHERE email= %s ', (email,))
          user=cursor.fetchall()
-         return render_template('/client/main.html', usermail=session['u_email'],adminreply=adminreply,user=user)
+         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+         cursor.execute('SELECT * FROM complains WHERE email= %s ', (email,))
+         usercomplain=cursor.fetchall()
+         return render_template('/client/main.html', usermail=session['u_email'],adminreply=adminreply,user=user,usercomplain=usercomplain)
      
     # User is not loggedin redirect to login page
      return render_template('userlogin.html')
 
-@app.route('/userlogin',methods=['POSt','GET'])
+@app.route('/userlogin',methods=['POST','GET'])
 def userlogin():
    
     if request.method=='POST':
@@ -88,6 +91,7 @@ def userregistration():
         msg = 'Please fill out the form!'
     # Show registration form with message (if any)
      return render_template('/client/signup.htm', msg=msg)
+     
 @app.route('/userlogout')
 def userlogut():
    session.pop('u_email')
@@ -148,13 +152,13 @@ def adminlogin():
         adminname=request.form['admin_name']
         adminpassword=request.form['admin_psw']
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM admin WHERE adminemail = %s AND adminpassword = %s', (adminname, adminpassword))
+        cursor.execute('SELECT * FROM admin WHERE email = %s AND password = %s', (adminname, adminpassword))
         admin=cursor.fetchone()
 
         if admin:
             session['loggedin'] = True
-            session['admin_psw'] = admin['adminpassword']
-            session['admin_email'] = admin['adminemail']
+            session['admin_psw'] = admin['password']
+            session['admin_email'] = admin['email']
             return redirect(url_for('adminworkspace'))
         else:
             # Account doesnt exist or username/password incorrect
@@ -170,7 +174,7 @@ def adminregistration():
         adminemail=request.form['admin_email']
         adminpassword=request.form['admin_psw']
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        account=cursor.execute('SELECT * FROM admin WHERE adminemail=%s',(adminemail,))
+        account=cursor.execute('SELECT * FROM admin WHERE email=%s',(adminemail,))
         if account :
             msg="Account already exists in this email Id"
         elif not re.match(r'[^@]+@[^@]+\.[^@]+',adminemail):
