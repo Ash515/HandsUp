@@ -508,3 +508,9 @@ input {
         transform: translateX(5px);
     
 }
+#recieve-delete{
+    margin-left: 350px;
+}
+.recieved-items ul li a{
+    color:black;
+}

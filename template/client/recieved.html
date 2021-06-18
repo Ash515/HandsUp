@@ -1,0 +1,69 @@
+<html>
+    <title>Your's item</title>
+     <head>
+       
+         <style>
+             body{
+                 background-color: aqua;
+             }
+             .main{
+                 width:800px;
+                 height: 500px;
+                 margin-left:350px;
+                 background-color: rgba(70, 60, 80, 0.452);
+                 padding-left: 100px;
+                 margin-top: 50px;
+                 border-radius: 10px;
+             }
+             #r-date{
+                 margin-top: 30px;
+                 width:200px;
+                 height: 30px;
+             }
+             #r-subject{
+                 margin-top: 30px;
+                 width:500px;
+                 height: 30px;
+             }
+             #r-message{
+                 margin-top: 30px;
+                 width:500px;
+                 height: 200px;
+             }
+             .r-buttons{
+                 margin-left: 150px;
+                 margin-top: 20px;
+             }
+             #r-back{
+                 width:100px;
+                 background-color: blue;
+                 height:30px;   
+                 color:white;
+                 cursor: pointer;
+             }
+             #r-del{
+                 width:100px;
+                 background-color: rgb(75, 19, 27);
+                 height:30px;  
+                 margin-left: 30px; 
+                 color:white;
+                 cursor: pointer;
+             }
+         </style>
+     </head>
+     <body>
+         <div class="main">
+             {% for row in %}
+             <input id="r-date" ><br>
+             <input id="r-subject"><br>
+             <textarea id="r-message"></textarea></textarea><br>
+             <div class="r-buttons">
+                <a href="/main"> <input type="button" value="Back" id="r-back"></a>
+            
+                <a href="/deletecomplain/"><input type="button" id="r-del"  value="Delete"></a>
+               
+                </div>
+         </div>
+         
+     </body>
+</html>

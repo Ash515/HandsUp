@@ -32,7 +32,10 @@ def main():
          cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
          cursor.execute('SELECT * FROM complains')
          complainid=cursor.fetchall()
-         return render_template('/client/main.html', usermail=session['u_email'],adminreply=adminreply,user=user,usercomplain=usercomplain,complainid=complainid)
+         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+         cursor.execute('SELECT * FROM replymessage')
+         recieveid=cursor.fetchall()
+         return render_template('/client/main.html', usermail=session['u_email'],adminreply=adminreply,user=user,usercomplain=usercomplain,complainid=complainid,recieveid=recieveid)
      
     # User is not loggedin redirect to login page
      return render_template('userlogin.html')
@@ -138,7 +141,18 @@ def complain():
         cursor.execute('INSERT INTO complains VALUES(%s,%s,%s,%s,%s,%s)',(studentid,studentemail,studentregno,complaintname,complaintmessage,complaintdate))
         mysql.connection.commit()
     return redirect(url_for('main'))
+
+@app.route('/recievelist/<id>')
+def recievelist(id):
+    cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM replymessage WHERE id= %s', (id,))
+    recievedata=cursor.fetchall()
+
+    return render_template('/client/recieved.html',recievedata=recievedata)
+
     
+
+
 
 
 
@@ -256,11 +270,11 @@ def delete_user(id):
 @app.route('/deleterecieve/<id>')
 def delete_user(id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("DELETE FROM complains WHERE id=%s", (id,))
+    cursor.execute("DELETE FROM replymessage WHERE id=%s", (id,))
     de= cursor.fetchall()
     cursor.connection.commit()
-    return render_template('adminworkspace.html',de=de)
-''' 
+    return render_template('main.html',de=de)
+'''
    
 
         
