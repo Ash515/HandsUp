@@ -19,16 +19,29 @@
                  margin-top: 30px;
                  width:200px;
                  height: 30px;
+                 font-family: Georgia, 'Times New Roman', Times, serif;
+                 font-size: 16px;
+                 padding-left: 20px;
+                 padding-right: 20px;
              }
              #r-subject{
                  margin-top: 30px;
                  width:500px;
                  height: 30px;
+                 font-family: Georgia, 'Times New Roman', Times, serif;
+                 font-size: 16px;
+                 padding-left: 20px;
+                 padding-right: 20px;
              }
              #r-message{
+                 padding-top: 10px;
+                 padding-left: 20px;
+                 padding-right: 20px;
                  margin-top: 30px;
                  width:500px;
                  height: 200px;
+                 font-family: Georgia, 'Times New Roman', Times, serif;
+                 font-size: 16px;
              }
              .r-buttons{
                  margin-left: 150px;
@@ -53,16 +66,17 @@
      </head>
      <body>
          <div class="main">
-             {% for row in %}
-             <input id="r-date" ><br>
-             <input id="r-subject"><br>
-             <textarea id="r-message"></textarea></textarea><br>
+             {% for row in recievedata %}
+             <input id="r-date"  value="{{row.date}}" readonly><br>
+             <input id="r-subject" value="{{row.subject}}" readonly><br>
+             <textarea id="r-message"readonly> {{row.message}}</textarea></textarea><br>
              <div class="r-buttons">
                 <a href="/main"> <input type="button" value="Back" id="r-back"></a>
             
                 <a href="/deletecomplain/"><input type="button" id="r-del"  value="Delete"></a>
-               
+                {% endfor %}
                 </div>
+                
          </div>
          
      </body>

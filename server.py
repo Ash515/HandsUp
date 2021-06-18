@@ -33,7 +33,7 @@ def main():
          cursor.execute('SELECT * FROM complains')
          complainid=cursor.fetchall()
          cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-         cursor.execute('SELECT * FROM replymessage')
+         cursor.execute('SELECT * FROM replymessage WHERE email=%s',(email,))
          recieveid=cursor.fetchall()
          return render_template('/client/main.html', usermail=session['u_email'],adminreply=adminreply,user=user,usercomplain=usercomplain,complainid=complainid,recieveid=recieveid)
      

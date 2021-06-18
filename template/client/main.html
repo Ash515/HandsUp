@@ -77,27 +77,36 @@
                            <h3> Recieved Lists</h3>
                            <div id="sent-cancel" onclick="displayclose()">x</div>
                            <div class="recieved" >
+                            {% for row in adminreply %}
                            
-                            <ul>
-                                
-                               <li>
+                           <ul>
+                           
+                           
+                             <li>
+                                {% for i in recieveid %}
+                                <a href="/recievelist/{{i.id}}">
                                    <div class="recievedlist">
-                                    {% for row in adminreply %}
+                                
                                    
-                                   <b>Date:</b> {{row.date}} {% for i in recieveid %} <a href="/recievelist/{{i.id}}" id="recieve-delete"><font color="black">Open</font></a>{% endfor %}<br>
+                                   <b>Date:</b> {{row.date}} <br>
+                                    
                                     <b>Subject:</b> {{row.subject}}<br>
                                     <b>Message:</b> {{row.message}}<br>
-                                    {% endfor %}
+                                   
                                     
-                                   </div>
-                                 </li><br>
+                                   </div> {% endfor %} 
+                                 </li></a>
+                                <br> 
                                  
                                    
-                                  
-                                 </ul>
+                               
+                                 </ul> 
+                                
+                                 
+                                 {% endfor %}
                            </div>
                             </div>
-                        </div>
+                       
                     </div>
            </div>
          </body>
