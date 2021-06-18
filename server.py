@@ -223,24 +223,47 @@ def complains(id):
     cur=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cur.execute('SELECT * FROM complains where id=%s',(id,))
     users=cur.fetchall()
-    return render_template('/client/complainbox.html',complaindata=complaindata,users=users)
+    cur=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cur.execute('SELECT * FROM complains where id=%s',(id,))
+    des=cur.fetchall()
+    return render_template('/client/complainbox.html',des=des,complaindata=complaindata,users=users)
 
 @app.route('/replying',methods=['POST','GET'])
 def replying():
     if request.method=='POST':
         adminreplydate=request.form['rep_date']
         adminreplyemail=request.form['rep_email']
+        adminreplycomplainid=request.form['rep_complainid']
         adminreplysubject=request.form['rep_subject']
         adminreplymessage=request.form['rep_message']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('INSERT INTO replymessage VALUES(%s,%s,%s,%s)',(adminreplydate,adminreplyemail,adminreplysubject,adminreplymessage,))
+        cursor.execute('INSERT INTO replymessage VALUES(%s,%s,%s,%s,%s)',(adminreplycomplainid,adminreplydate,adminreplyemail,adminreplysubject,adminreplymessage,))
         cursor.connection.commit()
     return redirect(url_for('sent'))
 
 @app.route('/sent')
 def sent():
     return render_template('notification.html')
+    
+@app.route('/deletecomplain/<id>')
+def delete_user(id):
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute("DELETE FROM complains WHERE id=%s", (id,))
+    de= cursor.fetchall()
+    cursor.connection.commit()
+    return render_template('adminworkspace.html',de=de)
+'''
+@app.route('/deleterecieve/<id>')
+def delete_user(id):
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute("DELETE FROM complains WHERE id=%s", (id,))
+    de= cursor.fetchall()
+    cursor.connection.commit()
+    return render_template('adminworkspace.html',de=de)
+''' 
    
+
+        
    
 if __name__=='__main__':
     app.debug=True

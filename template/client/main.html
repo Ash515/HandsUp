@@ -35,7 +35,7 @@
                         <h3>Post your complaints</h3>
                         <div id="cancel" onclick="displayclose()">x</div>
                          <form action="/complain" method="POST" id="form">
-                            {% for row in complainid %}
+                        
                              <input type="text" id="comp-date" name="complaint_name" placeholder="complain name" required> <br>
                              <input type="text" id="comp-date" name="student_mail" placeholder="Type your mail Id" required><br>
                              <input type="text" id="comp-date" name="student_regno" placeholder="Registration Number" required><br>
@@ -47,7 +47,7 @@
                              <textarea name="complaint_msg" id="comp-text" placeholder="Type your complain here" required></textarea></textarea> <br>
                              <input type="date" id="comp-date" name="complaint_date" required>
                              <input type="submit" id="submit" value="Send">
-                             {% endfor %}
+                     
                              
                             </form>
                      </div>

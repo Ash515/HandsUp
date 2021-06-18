@@ -13,25 +13,31 @@
 
             <div class="sent">
                            {% for row in complaindata %}
+                           
                            <div class="details">
                            <b>Date</b>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="text" placeholder="Month" id="sentdate" value="{{row.date}}" readonly><br>
                              <b>Subject </b> &nbsp; <input type="text" id="sentsub" value="{{row.complainname}}" readonly><br>
                              <div id="brief"><i>Brief</i></div>
                              <textarea id="sentcont" value=""readonly> {{row.message}}</textarea><br>
                              </div>
-                             <div class="rep-del">
-                             <input type="submit" value="Reply" onclick="reply()" id="reply"></a><a href="{{url_for('adminworkspace')}}"><input type="button" class="col1-close"  value="Back"></a>
-                             
-                             {% endfor %}
-                        <div class="rep-del">
-                            
-                          
-              
-                    </div>
-                </div></div>
+                             <div class="complain-del">
+                             <input type="submit" value="Reply" onclick="reply()" id="reply">
+                             {% for row in des %}
+                             <a href="/deletecomplain/{{row.id}}"><input type="button" class="compdel"  value="Delete"></a>
+                            {% endfor %}
+                             </div>
+                             <a href="/workspace"><input type="button" class="complain-back"  value="Back"></a>
+                            {% endfor %}
+                        
+                </div>
+                
           
    
                </div>
+
+
+
+               
                         <div class="column2">
                         <div id="profile-info">
                         
@@ -53,11 +59,12 @@
                            <h3 id="reply-topic">Reply</h3>
                                
                           <input type="date" name="rep_date" placeholder="Date" id="repsentmonth" required> <input type="text" name="rep_email" placeholder="Email" id="repsentemail" required><br>
+                          <input type="text" name="rep_complainid" placeholder="Complain ID" id="repsentsub" required><br>
                           <input type="text" name="rep_subject" placeholder="Subject" id="repsentsub" required><br>
                          <textarea id="repsentcont" name="rep_message" placeholder="Message" required></textarea><br>
-                       <input type="submit" value="Send" id="sending"><input type="button" class="col2-close" onclick="saveclose()" value="Back">
+                         <input type="submit" value="Send" id="sending"><input type="button" class="col2-close" onclick="saveclose()" value="Back">
                          </form>
-                   </div>
+                   </div> 
                       </div>
 
 

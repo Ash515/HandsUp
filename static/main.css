@@ -393,6 +393,7 @@ textarea::placeholder{
     height:100px;
     margin-right: 50px;
     padding-left: 30px;
+    padding-right:30px;
     padding-top: 20px;
     cursor: pointer;
     border-radius: 10px;
@@ -436,7 +437,7 @@ height:100px;
 padding-top: 20px;
 margin-right: 50px;
 padding-left: 30px;
-
+padding-right: 30px;
 cursor: pointer;
 border-radius: 10px;
 font-size: 16px;

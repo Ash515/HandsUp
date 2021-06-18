@@ -59,12 +59,13 @@ textarea{
 }
 #reply{
     background-color:indigo;
+    
     width:150px;
-    height:50px;
+    height:40px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 20px;
     margin-top: 20px;
-    margin-left: 150px;
+    margin-left: 70px;
     color:white;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     cursor:pointer;
@@ -102,9 +103,11 @@ textarea{
         background-color:rgb(255, 255, 255);
         color: white;
     }
-    .rep-del{
+    .complain-del{
         display: inline-flex;
+
     }
+   
     #comp-id{
         padding-right: 200px;
     }
@@ -121,20 +124,35 @@ textarea{
     .sent{
         padding-top: 50px;
     }
-    .col1-close{
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    .compdel{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         margin-top: 20px;
-        background-color: rgb(138, 76, 47);
+        background-color: rgba(80, 14, 28, 0.801);
         color:white;
-        font-size: 18px;
+        font-size: 16px;
         margin-left:30px;
         width:150px;
-        height: 50px;
-        border-radius: 5px;
+        height:40px;
+        border-radius:20px;
         cursor: pointer;
     }
-    .col1-close:hover{
-        background-color: rgba(8, 8, 43, 0.267);
+    .compdel:hover{
+        background-color: rgba(80, 14, 28, 0.541);
+    }
+    .complain-back{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        margin-top: 20px;
+        background-color: rgba(19, 16, 24, 0.801);
+        color:white;
+        font-size: 16px;
+        margin-left:30px;
+        width:150px;
+        height:40px;
+        border-radius:20px;
+        cursor: pointer;
+    }
+    .complain-back:hover{
+        background-color:  rgba(19, 16, 24, 0.575);
     }
    
     .col2-close{
