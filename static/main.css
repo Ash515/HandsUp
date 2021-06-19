@@ -5,10 +5,29 @@ body{
 }
 .header{
     width:1512px;
-    height:50px;
-    background-color:rgb(180, 87, 87);
+    
+    background-color:rgba(87, 180, 99, 0.616);
     color:white;
     display: inline-flex;
+}
+.head-flex{
+    display: inline-flex;
+}
+.sent-flex{
+    display: inline-flex;
+    
+}
+.recieve-flex{
+    display: inline-flex;
+}
+.close{
+    position: relative;
+    top:0;
+    
+    font-size:42px;
+    transform:rotate(45deg);
+    cursor: pointer;
+    
 }
 i{
     margin-left:1200px;
@@ -23,7 +42,7 @@ li{
 }
 .nav-bar{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: antiquewhite;
+    background-color: rgb(225, 248, 245);
     width:230px;
     height: 250px;
     padding-top: 30px;
@@ -199,27 +218,15 @@ li{
     font-size: 20px;
 }
 
-
-
-
-.close{
-    position: relative;
-    top:0;
-    left:340px;
-    font-size:42px;
-    transform:rotate(45deg);
-    cursor: pointer;
-    
-}
-
 .column1 {
     float: left;
     width:750px;
     padding: 10px;
-    background-color: rgba(90, 35, 52, 0.329);
+    margin-top: 10px;
+    background-color: rgba(81, 218, 236, 0.329);
    text-align: center;
     height:700px; /* Should be removed. Only for demonstration */
-   
+    background-image:url('/static/images/complain.jpg');
     background-size:cover;
   }
 .column2{
@@ -227,6 +234,8 @@ li{
     float: right;
     width:730px;
     height:700px;
+    margin-top: 10px;
+
     /* Should be removed. Only for demonstration */
   }
  .row:after {
@@ -237,8 +246,9 @@ li{
   .image{
       display: block;
     background-size:cover;
+
     height:720px;
-    background-image:url('/static/images/adminlogin.jpg');
+    background-image:url('/static/images/grievance.png');
   }
 
 #comp-date{
@@ -260,6 +270,7 @@ li{
     padding-top: 5px;
         background-color: rgba(31, 116, 94, 0.5); 
     cursor: pointer;  
+    
 }
 #code-but:hover{
     background-color: rgba(31, 116, 93, 0.685);
@@ -289,7 +300,7 @@ textarea::placeholder{
 }
 
 #cancel{
-    margin-left: 550px;
+    margin-left:10px;
     background-color: rgba(0, 0, 0, 0.589);
     color: white;
     width: 30px;
@@ -385,12 +396,13 @@ textarea::placeholder{
        
         display: none;
         margin-left:10px;
-        margin-top: 50px;
+        margin-top: 10px;
     
 }
 .sentlist{
+    
     background-color: white;
-    height:100px;
+    height:60px;
     margin-right: 50px;
     padding-left: 30px;
     padding-right:30px;
@@ -402,7 +414,7 @@ textarea::placeholder{
     
 }
 .sentlist:hover{
-    background-color: rgb(131, 223, 223);
+    background-color: rgba(131, 140, 223, 0.568);
     border-color: rgb(27, 11, 39);
     border-width: 30px;
     color:white;
@@ -415,7 +427,7 @@ textarea::placeholder{
        
     display: none;
     margin-left:10px;
-    margin-top: 50px;
+    margin-top: 10px;
     
 
 }
@@ -433,7 +445,7 @@ div.recieved {
   }
 .recievedlist{
 background-color: white;
-height:100px;
+height:60px;
 padding-top: 20px;
 margin-right: 50px;
 padding-left: 30px;
@@ -445,7 +457,7 @@ color:rgb(75, 10, 10);
 
 }
 .recievedlist:hover{
-background-color: rgb(131, 223, 223);
+background-color: rgba(131, 156, 223, 0.527);
 border-color: rgb(27, 11, 39);
 border-width: 30px;
 color:white;
@@ -474,7 +486,7 @@ transition: 1ms;
 margin-right: 50px;
     background-color: rgb(24, 25, 104);
     color:white;
-    width:475px;
+    width:400px;
     height: 30px;
     padding-left: 30px;
     border-radius: 5px;
@@ -513,4 +525,7 @@ input {
 }
 .recieved-items ul li a{
     color:black;
+}
+#navbar{
+    margin-left: 90px;
 }

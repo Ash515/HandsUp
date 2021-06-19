@@ -10,7 +10,7 @@
         <div class="header">
             {% for i in user %}
             <h3>
-                Hi {{i.name}} !  <a href="#" onclick="mainnavbar()"><i class="fa fa-bars"></i></a>
+                Hi {{i.name}} !  <a href="#" onclick="mainnavbar()" id="navbar"><i class="fa fa-bars"></i></a>
             </h3>
             {% endfor %}
         </div>
@@ -25,16 +25,21 @@
                         &nbsp;
                        
                         <div class="nav-bar">
-                            <h3 id="profile"><a href="/profile">Profile</a></h3>
+                            
                             <h3 id="settings"><a href="/usersettings">Guidelines</a></h3>
                             <h3 id="logout"><a href="/userlogout">Logout</a></h3>
                         </div>
                     </div>
                   
                     <div class="add-complain" >
+                        <div class="head-flex">
+
                         <h3>Post your complaints</h3>
+                      
                         <div id="cancel" onclick="displayclose()">x</div>
-                         <form action="/complain" method="POST" id="form">
+                         
+                        </div>
+                        <form action="/complain" method="POST" id="form">
                         
                              <input type="text" id="comp-date" name="complaint_name" placeholder="complain name" required> <br>
                              <input type="text" id="comp-date" name="student_mail" placeholder="Type your mail Id" required><br>
@@ -42,6 +47,7 @@
                              
                              <div class="buttonIn">
                                 <input type="text" id="code" name="complaint_id" placeholder=" Click button to generate unique code" readonly required>
+                                
                                 <h3 id="code-but" onclick="codegenerator()">Click</h3>
                             </div>
                              <textarea name="complaint_msg" id="comp-text" placeholder="Type your complain here" required></textarea></textarea> <br>
@@ -53,17 +59,21 @@
                      </div>
 
                      <div class="sent-items" >
-                        <h3> Sent Lists</h3>
-                        <div id="sent-cancel" onclick="displayclose()">x</div>
+                        <div class="sent-flex">
+                        <h3> Sent Items</h3>
+                        <div id="cancel" onclick="displayclose()">x</div>
+                        </div>
                         <div class="sent" >
-                            {% for row in usercomplain %}
+                            {% for row in sentid %}
                         <ul>
                             <li>  
+                                <a href="/sentitems/{{row.id}}">
                                <div class="sentlist">
-                               <b>Date:</b> {{row.date}} <br>
-                                <b>Complain Name:</b> {{row.complainname}}</b><br>
-                                <b>Message:</b> {{row.message}}<br>
-                               </div>
+                            
+                                <b> {{row.complainname}}</b> <br>
+                                    Date: {{row.date}}
+                             
+                               </div></a>
                                </li><br>
                                
                                 
@@ -74,40 +84,27 @@
                         </div>
 
                         <div class="recieved-items" >
-                           <h3> Recieved Lists</h3>
-                           <div id="sent-cancel" onclick="displayclose()">x</div>
+                            <div class="recieve-flex">
+                           <h3> Recieved Items</h3>
+                           <div id="cancel" onclick="displayclose()">x</div>
+                           </div>
                            <div class="recieved" >
                             {% for row in adminreply %}
-                           
                            <ul>
-                           
-                           
-                             <li>
-                                {% for i in recieveid %}
-                                <a href="/recievelist/{{i.id}}">
+                           <li>
+                                <a href="/recievelist/{{row.id}}">
                                    <div class="recievedlist">
-                                
-                                   
-                                   <b>Date:</b> {{row.date}} <br>
-                                    
-                                    <b>Subject:</b> {{row.subject}}<br>
-                                    <b>Message:</b> {{row.message}}<br>
-                                   
-                                    
-                                   </div> {% endfor %} 
-                                 </li></a>
+                                  
+                                    <b> {{row.subject}}</b><br>
+                                    Date:&nbsp;{{row.date}} 
+                                   </div> </a>
+                                 </li>
                                 <br> 
-                                 
-                                   
-                               
                                  </ul> 
-                                
-                                 
-                                 {% endfor %}
+                                {% endfor %}
                            </div>
                             </div>
-                       
                     </div>
-           </div>
+            </div>
          </body>
 </html>

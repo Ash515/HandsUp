@@ -1,22 +1,22 @@
 <html>
-    <title>Your's Recieved item</title>
+    <title>Your's sent item</title>
      <head>
        
          <style>
              body{
                  background-color: aqua;
-                 background-image: url("/static/images/recieve.jpg");
+                 background-image: url("/static/images/sentitems.png");
                  background-size: 1550px 900px;
              }
              .main{
                  width:650px;
                  height: 500px;
                  margin-left:630px;
-                 background-color: rgba(70, 60, 80, 0.452);
+                 background-color: rgba(141, 75, 207, 0.452);
                  padding-left: 100px;
-                 margin-top: 50px;
+                 margin-top: 60px;
                  border-radius: 10px;
-                 padding-top: 10px;
+                 padding-top: 20px;
              }
              #r-date{
                  margin-top: 30px;
@@ -49,11 +49,10 @@
              .r-buttons{
                  margin-left: 150px;
                  margin-top: 20px;
-                 
              }
              #r-back{
                  width:100px;
-                 background-color: blue;
+                 background-color: rgb(43, 165, 118);
                  height:30px;   
                  color:white;
                  cursor: pointer;
@@ -83,15 +82,16 @@
      </head>
      <body>
          <div class="main">
-            <h3 id="sentitems-title">Recieved Items</h3>
-             {% for row in recievedata %}
+
+             <h3 id="sentitems-title">Sent Items</h3>
+             {% for row in sentdata %}
              <input id="r-date"  value="{{row.date}}" readonly><br>
-             <input id="r-subject" value="{{row.subject}}" readonly><br>
+             <input id="r-subject" value="{{row.complainname}}" readonly><br>
              <textarea id="r-message"readonly> {{row.message}}</textarea></textarea><br>
              <div class="r-buttons">
                 <a href="/main"> <input type="button" value="Back" id="r-back"></a>
             
-                <a href="/deleterecieve/{{row.id}}"><input type="button" id="r-del"  value="Delete"></a>
+                <a href="/deletesent/{{row.id}}"><input type="button" id="r-del"  value="Delete"></a>
                 {% endfor %}
                 </div>
                 

@@ -35,7 +35,10 @@ def main():
          cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
          cursor.execute('SELECT * FROM replymessage WHERE email=%s',(email,))
          recieveid=cursor.fetchall()
-         return render_template('/client/main.html', usermail=session['u_email'],adminreply=adminreply,user=user,usercomplain=usercomplain,complainid=complainid,recieveid=recieveid)
+         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+         cursor.execute('SELECT * FROM sentitems WHERE email= %s ', (email,))
+         sentid=cursor.fetchall()
+         return render_template('/client/main.html', usermail=session['u_email'],adminreply=adminreply,user=user,usercomplain=usercomplain,complainid=complainid,recieveid=recieveid,sentid=sentid)
      
     # User is not loggedin redirect to login page
      return render_template('userlogin.html')
@@ -140,6 +143,9 @@ def complain():
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('INSERT INTO complains VALUES(%s,%s,%s,%s,%s,%s)',(studentid,studentemail,studentregno,complaintname,complaintmessage,complaintdate))
         mysql.connection.commit()
+        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('INSERT INTO sentitems VALUES(%s,%s,%s,%s,%s,%s)',(studentid,studentemail,studentregno,complaintname,complaintmessage,complaintdate))
+        mysql.connection.commit()
     return redirect(url_for('main'))
 
 @app.route('/recievelist/<id>')
@@ -147,9 +153,17 @@ def recievelist(id):
     cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * FROM replymessage WHERE id= %s', (id,))
     recievedata=cursor.fetchall()
-
     return render_template('/client/recieved.html',recievedata=recievedata)
 
+@app.route('/sentitems/<id>')
+def sentitems(id):
+    cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM sentitems WHERE id= %s', (id,))
+    sentdata=cursor.fetchall()
+
+    return render_template('/client/sentitems.html',sentdata=sentdata)
+
+    
     
 
 
@@ -213,6 +227,11 @@ def adminregistration():
         return render_template('admin/adminsignup.html', msg=msg)
     return render_template('admin/adminsignup.html')
 
+@app.route('/adminlogout')
+def adminlogout():
+   session.pop('admin_email')
+   return redirect(url_for('adminindex'))
+
 @app.route('/workspace')
 def adminworkspace():
     if 'loggedin' in session:
@@ -260,21 +279,27 @@ def sent():
     return render_template('notification.html')
     
 @app.route('/deletecomplain/<id>')
-def delete_user(id):
+def deletecomplain(id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("DELETE FROM complains WHERE id=%s", (id,))
     de= cursor.fetchall()
     cursor.connection.commit()
-    return render_template('adminworkspace.html',de=de)
-'''
+    return render_template('/admin/adminworkspace.html',de=de)
+
 @app.route('/deleterecieve/<id>')
-def delete_user(id):
+def deleterecieve(id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("DELETE FROM replymessage WHERE id=%s", (id,))
-    de= cursor.fetchall()
     cursor.connection.commit()
-    return render_template('main.html',de=de)
-'''
+    return redirect(url_for('main'))
+
+@app.route('/deletesent/<id>')
+def deletesent(id):
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute("DELETE FROM sentitems WHERE id=%s", (id,))
+    
+    cursor.connection.commit()
+    return redirect(url_for('main'))
    
 
         
