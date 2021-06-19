@@ -1,0 +1,75 @@
+.header{
+    display: flex;
+    background-color: rgba(62, 62, 158, 0.925);
+    height:70px;
+    color:white;
+    padding-left: 20px;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 18px;
+    font-weight:bold;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+#student{
+    margin-left: 650px;
+    color: white;
+    cursor: pointer;
+    background-color: green;
+    width: 90px;
+    height: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#student:hover{
+    background-color: rgb(18, 190, 55);
+}
+#admin{
+    margin-left:50px;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(34, 107, 190);
+    width: 90px;
+    height: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 20px;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#admin:hover{
+    background-color: indigo;
+}
+
+.main:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.col2{
+    float: right;
+    width:750px;
+    background-image: url('/static/images/welcome.jpg');
+  background-size: cover;
+   background-color: yellow;
+    height:500px; /* Should be removed. Only for demonstration */
+  }
+  .col1 {
+    float: left;
+    width:730px;
+    padding: 10px;
+   
+    height:500px; /* Should be removed. Only for demonstration */
+  }
+  .welcome{
+      margin-left: 250px;
+      margin-top: 150px;
+  }
+  #welcome-title{
+ 
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
