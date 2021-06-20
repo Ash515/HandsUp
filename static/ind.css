@@ -4,7 +4,7 @@
     height:70px;
     color:white;
     padding-left: 20px;
-    font-family:'Courier New', Courier, monospace;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
     font-weight:bold;
 }
@@ -13,6 +13,7 @@ a{
     color:white;
 }
 #student{
+    
     margin-left: 650px;
     color: white;
     cursor: pointer;
@@ -22,7 +23,7 @@ a{
     padding-left: 10px;
     padding-top: 10px;
     border-radius: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #student:hover{
     background-color: rgb(18, 190, 55);
@@ -37,8 +38,8 @@ a{
     padding-left: 10px;
     padding-top: 10px;
     border-radius: 20px;
-
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #admin:hover{
     background-color: indigo;
@@ -55,7 +56,7 @@ a{
     width:750px;
     background-image: url('/static/images/welcome.jpg');
   background-size: cover;
-   background-color: yellow;
+ 
     height:500px; /* Should be removed. Only for demonstration */
   }
   .col1 {
@@ -73,3 +74,270 @@ a{
  
       font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
+  .about{
+      height:200px;
+      margin-left: 30px;margin-right: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 255, 0.219);
+      cursor: pointer;
+      background-color:white ;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .about:hover{
+      background-color: rgba(152, 133, 236, 0.466);
+      color:white;
+  }
+  #aboutus{
+      margin-left: 690px;
+      padding-top: 20px;
+  }
+  #tagline{
+    margin-left: 520px;
+  }
+  #tagline1{
+    margin-left: 590;
+  }
+  .services:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.col3{
+    margin-top: 20px;
+    float:left;
+    width:700px;
+    background-image: url('/static/images/middle.jpeg');
+  background-size: cover;
+   
+    height:500px; /* Should be removed. Only for demonstration */
+  }
+  .col4 {
+    float: right;
+    width:780px;
+    padding: 10px;
+  
+    height:500px; /* Should be removed. Only for demonstration */
+  }
+  #head-tag{
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 18px;
+  }
+  .box{
+      margin-left: 50px;
+      margin-top: 20px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       box-shadow: 0 0 10px blue;
+       overflow:scroll;
+      
+       width: 700px;
+       height: 600px;
+  }
+  .innerbox1{
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.459);
+      margin-left: 150px;
+      margin-top: 50px;
+      background-color:white;
+      width:400px;
+      height:200px;
+      padding-top: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: 10px;
+  }
+  .innerbox2{
+    margin-left: 150px;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.459);
+    background-color:white;
+    width:400px;
+    height:200px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+} 
+.innerbox3{
+    margin-left: 150px;
+    background-color: green;
+    width:400px;
+    height:200px;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.459);
+    background-color:white;
+
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+}
+.freq{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  height: 500px;
+}
+.Faq{
+  margin-top: 180px;
+  margin-left: 600px;
+  
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.faq-questions{
+  cursor: pointer;
+  margin-left: 200px;
+  padding-top: 20px;
+}
+#answer1{
+  display: none;
+  font-style: italic;
+  color:rgba(23, 23, 100, 0.644);
+  margin-left: 10px;
+}
+#answer2{
+  display: none;
+  font-style: italic;
+  color:rgba(23, 23, 100, 0.644);
+  margin-left: 10px;
+ 
+}
+#answer3{
+  display: none;
+  font-style: italic;
+  color:rgba(23, 23, 100, 0.644);
+  margin-left: 10px;
+}
+#answer4{
+  display: none;
+  font-style: italic;
+  color:rgba(23, 23, 100, 0.644);
+  margin-left: 10px;
+}
+#answer5{
+  display: none;
+  font-style: italic;
+  color:rgba(23, 23, 100, 0.644);
+  margin-left: 10px;
+}
+#faq-tagline{
+  margin-left: 30px;
+  font-style: italic;
+  color:rgba(23, 23, 100, 0.644);
+  margin-left: 10px;
+}
+.questions{
+  box-shadow:0 0 10px rgba(0, 0, 255, 0.315);
+  margin-right: 200px;
+  padding-left: 20px;
+  padding-top: 10px;
+  height: 390px;
+}
+.contact{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  height: 200px;
+  margin-top: 30px;
+}
+#contact-title{
+  color: indigo;
+  padding-top: 20px;
+  margin-left: 650px;
+}
+#contact-tagline{
+  margin-left: 610;
+  color:green;
+}
+.contact-box{
+  height: 500px;
+}
+.form{
+  box-shadow:0 0 10px rgba(0, 0, 255, 0.315);
+ 
+  padding-left: 90px;
+  margin-right: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+#name{
+  width:230px;
+  height: 40px;
+  padding-left: 10px;
+}
+#subject{
+  padding-left: 10px;
+  margin-top: 10px;
+  width:465px;
+  height: 40px;
+}
+textarea{
+  margin-top: 10px;
+  width:465px;
+  height: 100px;
+  padding-left: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#submit{
+  cursor: pointer;
+  background-color: indigo;
+  color:white;
+  width: 100px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-left: 160px;
+  padding-top: 10px;
+  padding-left: 55px;
+border-radius: 10px;
+  padding-bottom: 10px;
+}
+#submit:hover{
+  background-color: rgba(76, 0, 130, 0.479);
+}
+.contact-box:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.col5{
+  float: left;
+  width:500px;
+  background-image: url('/static/images/recieve.jpg');
+  background-size: cover;
+
+  height:500px; /* Should be removed. Only for demonstration */
+}
+.col6 {
+  float:right;
+  width:750px;
+  padding: 10px;
+ 
+  height:500px; /* Should be removed. Only for demonstration */
+}
+.footer-box:after {
+  content: "";
+  display: table;
+  clear: both;
+
+}
+
+.col7{
+  margin-top: 20px;
+  margin-left: 10px;
+  float: left;
+  width:400;
+ background-color: yellow;
+  background-size: cover;
+  padding-left: 100px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  height:470px; /* Should be removed. Only for demonstration */
+}
+.col8 {
+  float:right;
+  width:400px;
+  padding: 10px;
+ background-color: violet;
+  height:450px; /* Should be removed. Only for demonstration */
+}
+.col9 {
+  background-color: pink;
+  float:right;
+  width:400px;
+  padding: 10px;
+ 
+  height:450px; /* Should be removed. Only for demonstration */
+}
