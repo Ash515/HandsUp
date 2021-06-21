@@ -1,10 +1,11 @@
 body{
-    background-color: rgba(128, 0, 0, 0.664);
-    
+    background-color: rgba(0, 87, 128, 0.52);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     overflow-x: hidden; 
 
 }
 .list{
+    box-shadow:0 0 10px rgba(0, 0, 255, 0.315);
     background-color: white;
     margin-top: 20px;
     padding-bottom: 700px;
@@ -26,10 +27,12 @@ li{
     list-style-type:none;
     padding-top:10px;
     height:50px;
+    width:600px;
     padding-left: 20px;
-    background-color: rgb(80, 26, 57);
+    background-color: rgb(128, 4, 74);
+    box-shadow:0 0 10px rgba(255, 0, 106, 0.315);
     color:white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
 
 }
@@ -46,4 +49,14 @@ a{
 }
 #delete{
     margin-left: 700px;
+}
+.logout{
+    margin-left: 30px;
+    background-color: blue;
+    width: 130px;
+    height: 30px;
+    padding-left: 70px;
+    font-size: 18px;
+    border-radius: 10px;
+
 }

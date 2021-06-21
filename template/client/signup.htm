@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+body  {font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 * {box-sizing: border-box}
 
-.column {
+.column1 {
   float: left;
-  width:750px;
+  width:600px;
   padding: 10px;
   height:690px; /* Should be removed. Only for demonstration */
 }
-.column1 {
+.column {
   float: left;
-  width:750px;
+  width:600px;
   padding: 10px;
+  margin-left: 150px;
   height:690px; /* Should be removed. Only for demonstration */
-  background-image: url("/static/images/bgimg.jpg");
+  background-image: url("/static/images/register.jpg");
   background-size:cover;
 }
 
@@ -56,7 +57,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+
   opacity: 0.9;
 }
 
@@ -68,6 +69,8 @@ button:hover {
 .cancelbtn {
   padding: 14px 20px;
   background-color: #f44336;
+  margin-left: 130px;
+  
 }
 #cancel{
   color: white;
@@ -93,9 +96,11 @@ button:hover {
 .signupbtn{
   margin-top: 5px;
   height:45px;
-  background-color: rgb(38, 38, 160);
+  background-color: rgba(9, 9, 63, 0.562);
   color: white;
   cursor: pointer;
+  
+  margin-left: 130px;
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
@@ -109,35 +114,36 @@ button:hover {
 <body>
 <div class="row">
   <div class="column1">
+    <form action="/userregistration" style="border:1px solid #ccc" method="post">
+      <div class="container">
+        <h1>Sign Up</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        <label for="email"><b>User name</b></label>
+        <input type="text" placeholder="Enter username" name="u_name" required>
     
+        
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="u_email" required>
+    
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="u_psw" required>
+      
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+        <div class="clearfix">
+          <input type="submit" class="signupbtn" value="Sign Up">&nbsp;
+          <button type="button" class="cancelbtn"><a href="{{url_for('index')}}" id="cancel" style="text-decoration:none;">Cancel</a></button>
+         
+        </div>
+        {{msg}}
+      </div>
+    </form>
   </div>
   <div class="column" style="background-color:#0c253aa6;">
+</div>
 
-<form action="/userregistration" style="border:1px solid #ccc" method="post">
-  <div class="container">
-    <h1>Sign Up</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr>
-    <label for="email"><b>User name</b></label>
-    <input type="text" placeholder="Enter username" name="u_name" required>
-
-    
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="u_email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="u_psw" required>
-  
-    <label>
-      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-    </label>
-    <div class="clearfix">
-      <button type="button" class="cancelbtn"><a href="{{url_for('index')}}" id="cancel" style="text-decoration:none;">Cancel</a></button>
-      <input type="submit" class="signupbtn" value="Sign Up">
-    </div>
-    {{msg}}
-  </div>
-</form>
 
 </body>
 </html>

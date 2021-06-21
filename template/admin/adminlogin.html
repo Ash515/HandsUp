@@ -1,154 +1,99 @@
+<!DOCTYPE html>
 <html>
-<head>
-
-<style>
-* {
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width:750px;
-  padding: 10px;
-  height:820px; /* Should be removed. Only for demonstration */
-}
-.column1 {
-  float: left;
-  width:750px;
-  padding: 10px;
-  height:820px; /* Should be removed. Only for demonstration */
-  background-image: url("/static/images/adminsignup.jpg");
-  background-size:cover;
-}
-.cancelbtn{
-  color:white;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-form {border: 3px solid #f1f1f1;}
-
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-#cancel{
-  color: white;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius:90%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
+  <head>
+    <style>
+.main:after {
+    content: "";
+    display: table;
+    clear: both;
   }
-  .cancelbtn {
-     width: 100%;
+  .col1{
+    margin-top: 20px;
+    float:left;
+    width:600px;
+    background-image: url('/static/images/adminsiginin.png');
+  background-size: cover;
+   
+    height:500px; /* Should be removed. Only for demonstration */
   }
-}
-.sign{
-	display:block;
-	width:700px;
-	background-color:crimson;
-	color:white;
-	height:40px;
-	text-align: center;
-}
-#SU{
-	padding-top: 10px;
-}
-
-.avatar{
-	border-radius: 50%;
-}
-</style>
-<title>HandsUp | Admin Signin</title>
-</head>
-<body>
-<div class="row">
-  <div class="column1">
+  .col2 {
+    float: right;
+    width:750px;
+    padding: 10px;
     
-  </div>
-  <div class="column" style="background-color:#6345e69c;">
-  	
-
-<form  method="post" action="/adminlogin">
-  <div class="imgcontainer">
-   <h2><font color="white" >Admin Log in </font></h2>
-  </div>
-
-  <div class="container">
-    <label for="numid"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email ID" name="admin_name" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="admin_psw" required>
-        
-    <button type="submit" style="text-decoration: none;color:white">Sign In</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-
   
+    height:500px; /* Should be removed. Only for demonstration */
+   
+  }
+  form{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 0 0 10px rgba(255, 166, 0, 0.459);
+    padding-left:100px;
+    height: 300px;
+    padding-top: 50px;
+    margin-right: 250px;
+    margin-top: 30px;
+  } 
+  form:hover{
+    background-color: rgba(0, 255, 170, 0.301);
+  }
+   #mail{
+    width:250px;
+    height:20px;
+  }
+  #pass{
+    margin-top: 10px;
+    width:250px;
+    height:20px;
+  }
+  #submit{
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 10px;
+    cursor: pointer;color:white;
+    background-color: rgba(0, 128, 0, 0.541);
+  }
+  #return{
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 30px;
+    cursor: pointer;
+    color:white;
+    background-color: rgba(107, 24, 24, 0.219);
+  }
+  .but{
+    display: inline-flex;
+  }
+  a{
+    text-decoration: none;
+    color: black;
 
-</form>
-<div class="container" style="background-color:#f1f1f1">
-  <button type="button" class="cancelbtn"><a href="{{url_for('adminindex')}}" style="text-decoration:none;" id="cancel">Cancel</a></button>
- 
-  <div class="sign"><center><a href="/adminregistration" style="text-decoration: none;color:white"><div id="SU">Sign Up</div></a></center></div>
+  }
+  #signin{
+  color:green;
+  font-size: 18px;
+  }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="col1">
+
+        </div>
+     
+  <div class="col2" >
+    <form action="/adminlogin", method="post">
+      <h3 id="signin">Administrator Sign In</h3>
+      <input id="mail" name="admin_name" placeholder="Your Email" required><br>
+      <input id="pass" name="admin_psw" placeholder="Your Password" required><br>
+      <div class="but"><button type="submit" id="submit" >Log in</button></div><div class="but"><button id="return"><a href="{{url_for('index')}}">Return</a></button></div>
+      <h3><a href="{{url_for('adminregistration')}}">Create Account</a></h3>
+    </form>
+    
+  </div></div>
   
-</div>
-</div>
-</div>
-</body>
+  
+  </body>
 </html>

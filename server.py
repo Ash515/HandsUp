@@ -163,7 +163,18 @@ def sentitems(id):
 
     return render_template('/client/sentitems.html',sentdata=sentdata)
 
-    
+@app.route('/contact',methods=['POST','GET'])
+def contact():
+    if request.method=='POST':
+        name=request.form['name']
+        email=request.form['email']
+        subject=request.form['subject']
+        message=request.form['message']
+        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('INSERT INTO contact VALUES(%s,%s,%s,%s)',(name,email,subject,message,))
+        mysql.connection.commit()
+    return render_template('/client/index.html')
+
     
 
 

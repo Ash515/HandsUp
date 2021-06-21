@@ -1,45 +1,132 @@
 <html>
     <head>
         <title>HandsUp</title>
-        <link rel="stylesheet" href="/static/style.css" type="text/css">
+        <link rel="stylesheet" href="/static/index.css" type="text/css">
         <script src="/static/index.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
             
         </style>
     </head>
     <body>
-        <div class="header">
-            <h4>Hands Up - Crime Portal Management System</h4>
-        </div>
-        <div class="header" id="header">
-           <a href="/adminindex"><h4>Admin Page</h4></a>
-        </div>
+        <header>
+        <div class="header" id="head">
+            <h3>Hands Up - Crime Portal System
+                <h4 id="student"><a href="{{url_for('userlogin')}}">Student</a></h4>
+                <h4 id="admin"><a href="/adminlogin">Admin</a></h4>
+            </h3>
+        </div></header>
         <div class="main">
-           <div class="col1">
+            <div class="col1">
+           <div class="welcome"><h1 id="welcome-title"><font color="indigo">Welcome to Hands Up </font></h1> 
+            <h3 id="head-tag"><font color="green">A place to find yours solution...</font></h3></div>
+            
+        </div>
+        <div class="col2" ></div>
+        </div>
+        <div class="about" id="abt">
+            <h1 id="aboutus">About Us</h1>
+            <h3 id="tagline">HandsUp is an online crime portal system at your institution<br> <h3 id="tagline1">We will solve your problems and needs.</h3></h3>
+        </div>
+        <div class="services">
+            <div class="col3"></div>
+        <div class="col4">
+            <div class="box">
             <div class="innerbox1">
-                <h2>About</h2>
-                HandsUp is an online crime portal management system highly 
-                helpful to handle all the crimes and illegal activities raised among any individual at their institute.
+                <h2>Solution</h2>
+                HandsUp is useful to gives a solution for all your problem at Institute level.
             </div><br>
             
-            <div class="innerbox2" ><h2>Why ?</h2>
-              Crimes are raised in day by day. It is not only happened in cities or villages also happened in 
-              all institutions for women and men. The main reason is that no one have guts to 
-              complain to any one regarding their problems. So to overcome that problem it is good to 
-              have this portal system.
-          </div>
-          <div class="innerbox3" ><h2>The Right Place</h2>
-              This is the right place for all students and faculties to complain their problems 
-              and make their life freedom. This is the right place for all to ensure their freedom in their working place.
-          </div></div>
-        
-           <div class="col2">
-                <div class="log">
-                     <div id="signin"> <a href="/userlogin">Signin</div>
-                    <div id="signup"> <a href="/userregistration">Signup</div>
-                </div>
+            <div class="innerbox2" ><h2>Anonymous</h2>
+             All your problems and complains are handled by anonymous person at your institution.
+             And your complains were safely maintains by your institution.
+          </div><br>
+          <div class="innerbox3" ><h2>Updates </h2>
+              
+              Will get the update within 2 to 3 days as soon as possible in your recieved items.
+          </div><br>
+          <div class="innerbox3" ><h2>Privacy and Maintanence</h2>
+            Maintain your user credentials safely and use this application only for valid issues. All your email id and registration number are maintained.
+        </div><br>
+        <div class="innerbox3" ><h2>Usecase and Warning</h2>
+           Dont give any unnecessarry complains while giving complain you have to submit the proof copies otherwise your complain would not be validated.
+        </div>
+        </div>
+        </div></div>
+        <div class="freq" id="freq">
+        <div class="Faq">
+            <h1 id="faq-title">Frequently Asked Questions <br><h3 id="faq-tagline">Facing any queries, get it resolved here.</h3></h1>
+        </div>
+        <div class="faq-questions">
+            <div class="questions"> 
+             <div class="q1"><h3 id="query" onclick="answer1()">1. Is this for Students ?</h3></div>
+               <h3 id="answer1" onclick="closeing1()">📌 Yes this is for students and institute staffs.</h3>
+               <h3 id="query" onclick="answer2()">2. Whether our information are stored in safe place ?</h3>
+               <h3 id="answer2" onclick="closeing2()">📌 Your information are very safe and if have any issues we will rectify that.</h3>
+               <h3 id="query" onclick="answer3()">3. Who will handle all our complains ?</h3>
+               <h3 id="answer3" onclick="closeing3()">📌 Obviosly your institute management.</h3>
+               <h3 id="query" onclick="answer4()">4. Can we get that person details?</h3>
+               <h3 id="answer4" onclick="closeing4()">📌 No, the person is anonymous so you wont get any details.</h3>
+               <h3 id="query" onclick="answer5()">5. Is there any consequence will I face?</h3>
+               <h3 id="answer5" onclick="closeing5()">📌 No, you wont get any problem.Your complains are handle in high security manner.</h3>
            </div>
         </div>
+        </div> 
+        <div class="contact" id="con">
+            <h1 id="contact-title">Contact Us<br><h3 id="contact-tagline" >We'd love to hear from you!</h3></h1>
+        </div>
+        <div class="contact-box">
+            <div class="col5">
+         
+            </div>
+            <div class="col6">
+           <div class="form">
+               <form action="/contact" method="POST">
+                  <input placeholder="Your Name" id="name" name="name"> <input placeholder="Your Email" id="name" name="email">
+                  <input placeholder="Subject" id="subject" name="subject"><br>
+                  <textarea name="message">Message</textarea>
+                  <button id="submit" type="submit">Send</button>
+            </form>
+            </div></div>
+        </div>
+        <div class="footer">
+            <div class="footer-box">
+                <div class="col7">
+                     <h2>Hands Up</h2>
+                     <h3>Venkateshwar Nagar, Mangadu,<br>
+                         Chennai 600 122, Tamil Nadu.</h3>
+                     <h3><font color="green">Email:&nbsp;&nbsp;&nbsp;</font><i>Handsuptech@gmail.com</i></h3>
+                     <h3><font color="green">Mobile:</font><i>7358228847</i></h3>
+
+
+                </div>
+                <div class="col8">
+                  <h2 id="social">Our Social Networks</h2>
+                  <h4 id="social-tagline">Follow us at our Social handles to get all the updates.</h4>
+                  <div class="icons"><i class="fa fa-facebook" id="fb"></i> <i class="fa fa-twitter" id="twitter"></i> <i id="instagram" class="fa fa-instagram"></i> <i id="linkedin" class="fa fa-linkedin"></i></div>
+                </div>
+                <div class="col9">
+                    <h2 id="nav">Navigate</h2>
+                      <div class="list">
+                        <a href="#head" id="nav1"><font color="black"><b>></b></font> Home</a><br><br>
+                        <a href="#abt"  id="nav2"><font color="black"><b>></b></font> About Us</a><br><br>
+                        <a href="#freq"  id="nav3"><font color="black"><b>></b></font> FAQ's</a><br><br>
+                        <a href="#con"  id="nav4"><font color="black"><b>></b></font> Contact Us</a>
+                    </div>
+                    <h3></h3>
+                </div>
+            </div>
+            </div>
+         
+    
+
+
+
+
+        
+
+
+
     </body>
 </html>
 
