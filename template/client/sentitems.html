@@ -1,7 +1,7 @@
 <html>
     <title>Your's sent item</title>
      <head>
-       
+        <link rel="icon" href="/static/images/icon.png">
          <style>
              body{
                  background-color: aqua;
@@ -82,7 +82,6 @@
      </head>
      <body>
          <div class="main">
-
              <h3 id="sentitems-title">Sent Items</h3>
              {% for row in sentdata %}
              <input id="r-date"  value="{{row.date}}" readonly><br>
@@ -90,12 +89,9 @@
              <textarea id="r-message"readonly> {{row.message}}</textarea></textarea><br>
              <div class="r-buttons">
                 <a href="/main"> <input type="button" value="Back" id="r-back"></a>
-            
                 <a href="/deletesent/{{row.id}}"><input type="button" id="r-del"  value="Delete"></a>
                 {% endfor %}
                 </div>
-                
-         </div>
-         
-     </body>
+            </div>
+        </body>
 </html>

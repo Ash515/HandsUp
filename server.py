@@ -1,7 +1,8 @@
 import os
 import base64
-from io  import BytesIO
+import io  
 import PIL
+from PIL import Image
 from MySQLdb import connections
 from flask import Flask,send_file, render_template,send_file,url_for,redirect,flash, request, redirect,session
 from flask.wrappers import Response
@@ -20,6 +21,55 @@ mysql=MySQL(app)
 @app.route('/')
 def index():
   return render_template('/client/index.html')
+
+@app.route('/userlogin',methods=['POST','GET'])
+def userlogin():
+    message="Please fill the login "
+    if request.method=='POST':
+        useremail=request.form['u_email']
+        userpassword=request.form['u_psw']
+        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM users WHERE email = %s AND password = %s', (useremail, userpassword))
+        user=cursor.fetchone()
+        if user:
+            session['loggedin'] = True
+            session['u_psw'] = user['password']
+            session['u_email'] = user['email']
+            return redirect(url_for('main'))
+        else:
+            # Account doesnt exist or username/password incorrect
+             message = 'Incorrect username/password!'
+    return render_template('/client/login.html', message='')
+   
+    
+@app.route('/userregistration',methods=['POST','GET'])
+def userregistration():
+    msg = ''
+    if request.method == 'POST':
+        username = request.form['u_name']
+        usermail = request.form['u_email']
+        userpassword = request.form['u_psw']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM users WHERE email = %s', (usermail,))
+        account = cursor.fetchone()
+        if account:
+            msg = 'Account already exists!'
+        elif not re.match(r'[^@]+@[^@]+\.[^@]+', usermail):
+            msg = 'Invalid email address!'
+        elif not re.match(r'[A-Za-z0-9]+', username):
+            msg = 'Username must contain only characters and numbers!'
+        elif not username or not userpassword or not usermail:
+            msg = 'Please fill out the form!'
+        else:
+            # Account doesnt exists and the form data is valid, now insert new account into accounts table
+            cursor.execute('INSERT INTO users VALUES (%s, %s, %s)', (username, usermail, userpassword))
+            mysql.connection.commit()
+            msg = 'You have successfully registered!'
+            #after successfully inserted redirect to loginpage
+            return render_template('/client/login.html') 
+    elif request.method == 'POST':
+        msg = 'Please fill out the form!'
+    return render_template('/client/signup.htm', msg=msg)
 
 @app.route('/main')
 def main():
@@ -47,62 +97,8 @@ def main():
      
     # User is not loggedin redirect to login page
      return render_template('userlogin.html')
-
-@app.route('/userlogin',methods=['POST','GET'])
-def userlogin():
-    message="Please fill the login "
-    if request.method=='POST':
-        useremail=request.form['u_email']
-        userpassword=request.form['u_psw']
-        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM users WHERE email = %s AND password = %s', (useremail, userpassword))
-        user=cursor.fetchone()
-        if user:
-            session['loggedin'] = True
-            session['u_psw'] = user['password']
-            session['u_email'] = user['email']
-            return redirect(url_for('main'))
-        else:
-            # Account doesnt exist or username/password incorrect
-             message = 'Incorrect username/password!'
-    return render_template('/client/login.html', message='')
-   
     
-
-
-@app.route('/userregistration',methods=['POST','GET'])
-def userregistration():
-    msg = ''
-    if request.method == 'POST':
-        username = request.form['u_name']
-        usermail = request.form['u_email']
-        userpassword = request.form['u_psw']
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM users WHERE email = %s', (usermail,))
-        account = cursor.fetchone()
-        if account:
-            msg = 'Account already exists!'
-        elif not re.match(r'[^@]+@[^@]+\.[^@]+', usermail):
-            msg = 'Invalid email address!'
-        elif not re.match(r'[A-Za-z0-9]+', username):
-            msg = 'Username must contain only characters and numbers!'
-        elif not username or not userpassword or not usermail:
-            msg = 'Please fill out the form!'
-        else:
-            # Account doesnt exists and the form data is valid, now insert new account into accounts table
-            cursor.execute('INSERT INTO users VALUES (%s, %s, %s)', (username, usermail, userpassword))
-            mysql.connection.commit()
-            msg = 'You have successfully registered!'
-            #after successfully inserted redirect to loginpage
-            return render_template('/client/login.html') 
-    elif request.method == 'POST':
-        
-        msg = 'Please fill out the form!'
     
-    return render_template('/client/signup.htm', msg=msg)
-      
-    
-     
 @app.route('/userlogout')
 def userlogout():
    session.pop('u_email')
@@ -116,23 +112,6 @@ def profile():
 def usersettings():
     return render_template('/client/settings.html') 
     
-   
-@app.route('/aboutedit',methods=['POST','GET'])
-def aboutedit():
-    if request.method=='POST':
-        name=request.form['name']
-        email=request.form['email']
-        dept=request.form['dept']
-        regno=request.form['regno']
-        cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('INSERT INTO userprofile VALUES(%s,%s,%s,%s)',(email,name,dept,regno))
-        mysql.connection.commit()
-       
-
-        return redirect(url_for('main'))
-    return render_template('aboutedit.html')
-
-
 @app.route('/complain',methods=['POST','GET'])
 def complain():
     if request.method=='POST':
@@ -163,7 +142,6 @@ def sentitems(id):
     cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * FROM sentitems WHERE id= %s', (id,))
     sentdata=cursor.fetchall()
-
     return render_template('/client/sentitems.html',sentdata=sentdata)
 
 @app.route('/contact',methods=['POST','GET'])
@@ -178,26 +156,11 @@ def contact():
         mysql.connection.commit()
     return render_template('/client/index.html') 
 
-@app.route('/download/<pid>')
-def download(pid):
-    cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute('SELECT * FROM complains where file=%s',(pid,))
-    data=cursor.fetchall()
-    with open("data",'rb') as bites:
-        return send_file(BytesIO(bites.read()),attachment_filename="python.jpeg",as_attachment=True)
-    
-
-
-
-
-
 
 @app.route('/adminindex')
 def adminindex():
-   
     return render_template('/admin/admin.html')
     
-
 @app.route('/adminlogin',methods=['POST','GET'])
 def adminlogin():
     if request.method=='POST':
@@ -218,8 +181,6 @@ def adminlogin():
             message = 'Incorrect username/password!'
     return render_template('/admin/adminlogin.html', message='')
      
-   
-
 @app.route('/adminregistration',methods=['POST','GET'])
 def adminregistration():
     if request.method=='POST':
@@ -248,18 +209,6 @@ def adminregistration():
         msg = 'Please fill out the form!'
         return render_template('admin/adminsignup.html', msg=msg)
     return render_template('admin/adminsignup.html')
-
-    
-
-
-
-
-
-
-@app.route('/adminlogout')
-def adminlogout():
-   session.pop('admin_email')
-   return redirect(url_for('index'))
 
 @app.route('/workspace')
 def adminworkspace():
@@ -303,6 +252,11 @@ def replying():
         cursor.connection.commit()
     return redirect(url_for('sent'))
 
+@app.route('/adminlogout')
+def adminlogout():
+   session.pop('admin_email')
+   return redirect(url_for('index'))
+
 @app.route('/sent')
 def sent():
     return render_template('notification.html')
@@ -326,12 +280,8 @@ def deleterecieve(id):
 def deletesent(id):
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute("DELETE FROM sentitems WHERE id=%s", (id,))
-    
     cursor.connection.commit()
     return redirect(url_for('main'))
-   
-
-        
    
 if __name__=='__main__':
     app.debug=True

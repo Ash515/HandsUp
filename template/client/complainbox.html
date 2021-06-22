@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <link rel="icon" href="/static/images/icon.png">
         {% for row in complaindata %}
         <title>{{row.email}}</title>
         {% endfor %}
@@ -18,8 +19,8 @@
                            <b>Date</b>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="text" placeholder="Month" id="sentdate" value="{{row.date}}" readonly><br>
                              <b>Subject </b> &nbsp; <input type="text" id="sentsub" value="{{row.complainname}}" readonly><br>
                              <div id="brief"><i>Brief</i></div>
-                             <textarea id="sentcont" value=""readonly> {{row.message}}</textarea><br>
-                             <input type="button"><a href="/download/{{row.file}}">Document:</a>
+                             <textarea id="sentcont" value=""readonly> {{row.message}}</textarea><br><br>
+                             <a href="/download/{{row.file}}" id="download"target="blank">Get Poofs</a>
                             </div>
                              <div class="complain-del">
                              <input type="submit" value="Reply" onclick="reply()" id="reply">
@@ -29,36 +30,23 @@
                              </div>
                              <a href="/workspace"><input type="button" class="complain-back"  value="Back"></a>
                             {% endfor %}
-                        
-                </div>
-                
-          
-   
-               </div>
-
-
-
-               
-                        <div class="column2">
+                      </div>
+                    </div>
+              <div class="column2">
                         <div id="profile-info">
-                         
                          <h3>Student Information</h3>
                          {% for val in users %} 
                          <div class="pro-main">
                          <h3 id="email-id"><font color="indigo">Email:&nbsp;&nbsp;&nbsp;</font>{{ val.email }}</h3>
                          <h3 id="comp-id"><font color="indigo">Complain ID:</font>&nbsp;&nbsp;&nbsp;{{ val.id }}</h3>
                          <h3 id="reg-id"><font color="indigo">Registration ID: </font>{{ val.regno }}</h3>
-                         
                          </div>
                           {% endfor %}
                         </div>
                       <div class="comp-reply">
-                       
-                        <div class="repsent">
-                          
+                       <div class="repsent">
                           <form action="/replying" method="POST"> 
                            <h3 id="reply-topic">Reply</h3>
-                               
                           <input type="date" name="rep_date" placeholder="Date" id="repsentmonth" required> <input type="text" name="rep_email" placeholder="Email" id="repsentemail" required><br>
                           <input type="text" name="rep_complainid" placeholder="Complain ID" id="repsentsub" required><br>
                           <input type="text" name="rep_subject" placeholder="Subject" id="repsentsub" required><br>
@@ -67,21 +55,7 @@
                          </form>
                    </div> 
                       </div>
-
-
-
-
-
-
+                      </div>
                         </div>
-                        </div>
-                           
-                       
-                           
-                           
-                        
-                        
-                    
-       
-    </body>
-</html>
+                      </body>
+                      </html>

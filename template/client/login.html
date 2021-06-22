@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" href="/static/images/icon.png">
     <style>
 .main:after {
     content: "";
@@ -79,11 +80,8 @@
   </head>
   <body>
     <div class="main">
-      <div class="col1">
-
-        </div>
-     
-  <div class="col2" >
+      <div class="col1"></div>
+     <div class="col2" >
     <form action="/userlogin", method="post">
       <h3 id="signin">Sign In</h3>
       <input id="mail" name="u_email" placeholder="Your Email" required><br>
@@ -91,9 +89,6 @@
       <div class="but"><button type="submit" id="submit" >Log in</button></div><div class="but"><button id="return"><a href="{{url_for('index')}}">Return</a></button></div>
       <h3><a href="{{url_for('userregistration')}}">Create Account</a></h3>
     </form>
-    
-  </div></div>
-  
-  
-  </body>
+    </div></div>
+</body>
 </html>

@@ -239,4 +239,16 @@ textarea{
         background-color: blue;
         color:white;
     }
+    #download{
+        width:200px;
+        background-color: rgb(2, 8, 2);
+        color:white;
+        height: 50px;
+        padding: 5px 5px 5px 5px;
+        border-radius: 5px;
+       
+
+        
+
+    }
     

@@ -1,8 +1,7 @@
 <html>
-    <title>Your's Recieved item</title>
-     <head>
-       
-         <style>
+    <head>
+        <title>Your's Recieved item</title>
+       <style>
              body{
                  background-color: aqua;
                  background-image: url("/static/images/recieve.jpg");
@@ -80,6 +79,7 @@
                  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
              }
          </style>
+         <link rel="icon" href="/static/images/icon.png">
      </head>
      <body>
          <div class="main">
@@ -94,8 +94,6 @@
                 <a href="/deleterecieve/{{row.id}}"><input type="button" id="r-del"  value="Delete"></a>
                 {% endfor %}
                 </div>
-                
-         </div>
-         
-     </body>
+            </div>
+        </body>
 </html>

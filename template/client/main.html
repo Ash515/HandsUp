@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="/static/images/icon.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>{{session.u_name}}</title>
         <link rel="stylesheet" type="text/css" href="/static/main.css">
@@ -23,42 +24,30 @@
                 <div class="column2">
                 <div class="image" onclick="imageclose()">
                         &nbsp;
-                       
                         <div class="nav-bar">
-                            
                             <h3 id="settings"><a href="/usersettings">Guidelines</a></h3>
                             <h3 id="logout"><a href="{{url_for('userlogout')}}">Logout</a></h3>
                         </div>
                     </div>
-                  
-                    <div class="add-complain" >
+                  <div class="add-complain" >
                         <div class="head-flex">
-
                         <h3>Post your complaints</h3>
-                      
-                        <div id="cancel" onclick="displayclose()">x</div>
-                         
-                        </div>
+                         <div id="cancel" onclick="displayclose()">x</div>
+                         </div>
                         <form action="{{url_for('complain')}}" method="POST" id="form">
-                        
                              <input type="text" id="comp-date" name="complaint_name" placeholder="complain name" required> <br>
                              <input type="text" id="comp-date" name="student_mail" placeholder="Type your mail Id" required><br>
                              <input type="text" id="comp-date" name="student_regno" placeholder="Registration Number" required><br>
-                             
                              <div class="buttonIn">
                                 <input type="text" id="code" name="complaint_id" placeholder=" Click button to generate unique code" readonly required>
-                                
                                 <h3 id="code-but" onclick="codegenerator()">Click</h3>
                             </div>
                              <textarea name="complaint_msg" id="comp-text" placeholder="Type your complain here" required></textarea></textarea> <br>
                              <input type="date" id="comp-date" name="complaint_date" required>
                              <div class="proof">Upload your proof document.</div> <div id="file" class="proof"><input type="file" name="comp_file" accept="image/*" multiple></div>
                              <input type="submit" id="submit" value="Send">
-                     
-                             
-                            </form>
+                     </form>
                      </div>
-
                      <div class="sent-items" >
                         <div class="sent-flex">
                         <h3> Sent Items</h3>
@@ -73,17 +62,12 @@
                             
                                 <b> {{row.complainname}}</b> <br>
                                     Date: {{row.date}}
-                             
-                               </div></a>
+                             </div></a>
                                </li><br>
-                               
-                                
-                                    
-                             </ul>
+                               </ul>
                              {% endfor %}
                              </div>
                         </div>
-
                         <div class="recieved-items" >
                             <div class="recieve-flex">
                            <h3> Recieved Items</h3>
