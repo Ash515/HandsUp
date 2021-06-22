@@ -19,7 +19,8 @@
                              <b>Subject </b> &nbsp; <input type="text" id="sentsub" value="{{row.complainname}}" readonly><br>
                              <div id="brief"><i>Brief</i></div>
                              <textarea id="sentcont" value=""readonly> {{row.message}}</textarea><br>
-                             </div>
+                             <input type="button"><a href="/download/{{row.file}}">Document:</a>
+                            </div>
                              <div class="complain-del">
                              <input type="submit" value="Reply" onclick="reply()" id="reply">
                              {% for row in des %}
@@ -40,7 +41,7 @@
                
                         <div class="column2">
                         <div id="profile-info">
-                        
+                         
                          <h3>Student Information</h3>
                          {% for val in users %} 
                          <div class="pro-main">

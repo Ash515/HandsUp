@@ -27,7 +27,7 @@
                         <div class="nav-bar">
                             
                             <h3 id="settings"><a href="/usersettings">Guidelines</a></h3>
-                            <h3 id="logout"><a href="/userlogout">Logout</a></h3>
+                            <h3 id="logout"><a href="{{url_for('userlogout')}}">Logout</a></h3>
                         </div>
                     </div>
                   
@@ -39,7 +39,7 @@
                         <div id="cancel" onclick="displayclose()">x</div>
                          
                         </div>
-                        <form action="/complain" method="POST" id="form">
+                        <form action="{{url_for('complain')}}" method="POST" id="form">
                         
                              <input type="text" id="comp-date" name="complaint_name" placeholder="complain name" required> <br>
                              <input type="text" id="comp-date" name="student_mail" placeholder="Type your mail Id" required><br>
@@ -52,6 +52,7 @@
                             </div>
                              <textarea name="complaint_msg" id="comp-text" placeholder="Type your complain here" required></textarea></textarea> <br>
                              <input type="date" id="comp-date" name="complaint_date" required>
+                             <div class="proof">Upload your proof document.</div> <div id="file" class="proof"><input type="file" name="comp_file" accept="image/*" multiple></div>
                              <input type="submit" id="submit" value="Send">
                      
                              

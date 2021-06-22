@@ -119,7 +119,7 @@ button:hover {
         <h1>Sign Up</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
-        <label for="email"><b>User name</b></label>
+        <b>User name</b>
         <input type="text" placeholder="Enter username" name="u_name" required>
     
         
@@ -129,9 +129,7 @@ button:hover {
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="u_psw" required>
       
-        <label>
-          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-        </label>
+        
         <div class="clearfix">
           <input type="submit" class="signupbtn" value="Sign Up">&nbsp;
           <button type="button" class="cancelbtn"><a href="{{url_for('index')}}" id="cancel" style="text-decoration:none;">Cancel</a></button>

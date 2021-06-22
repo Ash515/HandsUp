@@ -1,6 +1,11 @@
+import os
+import base64
+from io  import BytesIO
+import PIL
 from MySQLdb import connections
-from flask import Flask, render_template,send_file,url_for,redirect,flash, request, redirect,session
+from flask import Flask,send_file, render_template,send_file,url_for,redirect,flash, request, redirect,session
 from flask.wrappers import Response
+from flask_sqlalchemy import SQLAlchemy
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
@@ -45,15 +50,13 @@ def main():
 
 @app.route('/userlogin',methods=['POST','GET'])
 def userlogin():
-   
+    message="Please fill the login "
     if request.method=='POST':
-        message="Please fill the login "
         useremail=request.form['u_email']
         userpassword=request.form['u_psw']
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM users WHERE email = %s AND password = %s', (useremail, userpassword))
         user=cursor.fetchone()
-
         if user:
             session['loggedin'] = True
             session['u_psw'] = user['password']
@@ -61,25 +64,22 @@ def userlogin():
             return redirect(url_for('main'))
         else:
             # Account doesnt exist or username/password incorrect
-            message = 'Incorrect username/password!'
+             message = 'Incorrect username/password!'
     return render_template('/client/login.html', message='')
+   
     
 
 
 @app.route('/userregistration',methods=['POST','GET'])
 def userregistration():
-     msg = ''
-    # Check if "username", "password" and "email" POST requests exist (user submitted form)
-     if request.method == 'POST':       # Create variables for easy access
+    msg = ''
+    if request.method == 'POST':
         username = request.form['u_name']
         usermail = request.form['u_email']
         userpassword = request.form['u_psw']
-      
-        # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM users WHERE email = %s', (usermail,))
         account = cursor.fetchone()
-        # If account exists show error and validation checks
         if account:
             msg = 'Account already exists!'
         elif not re.match(r'[^@]+@[^@]+\.[^@]+', usermail):
@@ -94,15 +94,17 @@ def userregistration():
             mysql.connection.commit()
             msg = 'You have successfully registered!'
             #after successfully inserted redirect to loginpage
-            return render_template('/client/login.html')  
-     elif request.method == 'POST':
-        # Form is empty... (no POST data)
+            return render_template('/client/login.html') 
+    elif request.method == 'POST':
+        
         msg = 'Please fill out the form!'
-    # Show registration form with message (if any)
-     return render_template('/client/signup.htm', msg=msg)
+    
+    return render_template('/client/signup.htm', msg=msg)
+      
+    
      
 @app.route('/userlogout')
-def userlogut():
+def userlogout():
    session.pop('u_email')
    return redirect(url_for('index'))
 
@@ -140,11 +142,12 @@ def complain():
         complaintname=request.form['complaint_name']
         complaintmessage=request.form['complaint_msg']
         complaintdate=request.form['complaint_date']
+        complaintfile=request.form['comp_file']
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('INSERT INTO complains VALUES(%s,%s,%s,%s,%s,%s)',(studentid,studentemail,studentregno,complaintname,complaintmessage,complaintdate))
+        cursor.execute('INSERT INTO complains VALUES(%s,%s,%s,%s,%s,%s,%s)',(studentid,studentemail,studentregno,complaintname,complaintmessage,complaintdate,complaintfile))
         mysql.connection.commit()
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('INSERT INTO sentitems VALUES(%s,%s,%s,%s,%s,%s)',(studentid,studentemail,studentregno,complaintname,complaintmessage,complaintdate))
+        cursor.execute('INSERT INTO sentitems VALUES(%s,%s,%s,%s,%s,%s,%s)',(studentid,studentemail,studentregno,complaintname,complaintmessage,complaintdate,complaintfile))
         mysql.connection.commit()
     return redirect(url_for('main'))
 
@@ -173,9 +176,17 @@ def contact():
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('INSERT INTO contact VALUES(%s,%s,%s,%s)',(name,email,subject,message,))
         mysql.connection.commit()
-    return render_template('/client/index.html')
+    return render_template('/client/index.html') 
 
+@app.route('/download/<pid>')
+def download(pid):
+    cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM complains where file=%s',(pid,))
+    data=cursor.fetchall()
+    with open("data",'rb') as bites:
+        return send_file(BytesIO(bites.read()),attachment_filename="python.jpeg",as_attachment=True)
     
+
 
 
 
@@ -189,9 +200,9 @@ def adminindex():
 
 @app.route('/adminlogin',methods=['POST','GET'])
 def adminlogin():
-     if request.method=='POST':
+    if request.method=='POST':
         message="Please fill the login "
-        adminname=request.form['admin_name']
+        adminname=request.form['admin_email']
         adminpassword=request.form['admin_psw']
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM admin WHERE email = %s AND password = %s', (adminname, adminpassword))
@@ -205,20 +216,21 @@ def adminlogin():
         else:
             # Account doesnt exist or username/password incorrect
             message = 'Incorrect username/password!'
-     return render_template('/admin/adminlogin.html', message='')
+    return render_template('/admin/adminlogin.html', message='')
      
+   
 
 @app.route('/adminregistration',methods=['POST','GET'])
 def adminregistration():
     if request.method=='POST':
         msg=""
-        adminname=request.form['admin_uname']
+        adminname=request.form['admin_name']
         adminemail=request.form['admin_email']
         adminpassword=request.form['admin_psw']
         cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         account=cursor.execute('SELECT * FROM admin WHERE email=%s',(adminemail,))
         if account :
-            msg="Account already exists in this email Id"
+             msg="Account already exists in this email Id"
         elif not re.match(r'[^@]+@[^@]+\.[^@]+',adminemail):
             msg = 'Invalid email address!'
         elif not re.match(r'[A-Za-z0-9]+', adminname):
@@ -230,18 +242,24 @@ def adminregistration():
             mysql.connection.commit()
             msg = 'You have successfully registered!'
             #after successfully inserted redirect to loginpage
-            return render_template('/admin/adminlogin.html')  
+            return render_template('/admin/adminlogin.html')
     elif request.method == 'POST':
-        # Form is empty... (no POST data)
+     
         msg = 'Please fill out the form!'
-    # Show registration form with message (if any)
         return render_template('admin/adminsignup.html', msg=msg)
     return render_template('admin/adminsignup.html')
+
+    
+
+
+
+
+
 
 @app.route('/adminlogout')
 def adminlogout():
    session.pop('admin_email')
-   return redirect(url_for('adminindex'))
+   return redirect(url_for('index'))
 
 @app.route('/workspace')
 def adminworkspace():

@@ -529,3 +529,10 @@ input {
 #navbar{
     margin-left: 90px;
 }
+.proof{
+    margin-top: 10px;
+    display: inline-flex;
+}
+#file{
+    margin-left: 20px;
+}

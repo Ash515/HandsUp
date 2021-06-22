@@ -63,7 +63,7 @@
     color:white;
     background-color: rgba(107, 24, 24, 0.219);
   }
-  .but{
+  .but{ 
     display: inline-flex;
   }
   a{
@@ -86,7 +86,7 @@
   <div class="col2" >
     <form action="/adminlogin", method="post">
       <h3 id="signin">Administrator Sign In</h3>
-      <input id="mail" name="admin_name" placeholder="Your Email" required><br>
+      <input id="mail" name="admin_email" placeholder="Your Email" required><br>
       <input id="pass" name="admin_psw" placeholder="Your Password" required><br>
       <div class="but"><button type="submit" id="submit" >Log in</button></div><div class="but"><button id="return"><a href="{{url_for('index')}}">Return</a></button></div>
       <h3><a href="{{url_for('adminregistration')}}">Create Account</a></h3>
