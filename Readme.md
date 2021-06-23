@@ -57,13 +57,13 @@ $git push origin master
 Thats all about installation and version control with **Git**
 
 ## Image Results
-## Client 
+
 ### Home page
 <img src="Image Results/Client/img1.png" width="400px">  <img src="Image Results/Client/img2.png" width="400px">
 <img src="Image Results/Client/img3.png" width="400px"><img src="Image Results/Client/img4.png" width="400px">
 <img src="Image Results/Client/img5.png" width="400px"><img src="Image Results/Client/img6.png" width="400px">
 
-[See More Images](https://github.com/Ash515/HandsUp/tree/master/Image%20Results/Client)
+[See More Images](https://github.com/Ash515/HandsUp/tree/master/Image%20Results)
 
 
 
