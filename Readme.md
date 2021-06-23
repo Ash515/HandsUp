@@ -21,10 +21,14 @@ of every complains.
 - Database - MySQL, SQL
 
 ## How to Install ?
-Install and run it on your **Local Host**
+Install and run it on your browser.
 1. Download the repository 
 2. Create a MySQl database in PhpMyAdmin.
 3. Create a tables as mentioned in the **server.py** file.
 4. Run the **server.py** file you will be direct to ```http://127.0.0.1:5000/```
+
+## How to Contribute ?
+1. Fork
+
 
 
