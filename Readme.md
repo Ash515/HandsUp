@@ -28,7 +28,33 @@ Install and run it on your browser.
 4. Run the **server.py** file you will be direct to ```http://127.0.0.1:5000/```
 
 ## How to Contribute ?
-1. Fork
+
+1. Clone the repository 
+```
+https://github.com/Ash515/HandsUp.git
+```
+2. Check the status of your file 
+```
+$git status
+```
+
+3.For using VScode for editing your files 
+```
+$git code .
+```
+4. To directly add your files to github
+```
+$git add .
+```
+5. After writing your code commit your changes 
+```
+$git commit -m  <message>
+```
+6. To pull your code to reposoitory
+```
+$git push origin master
+```
+Thats all about installation and version control with **Git**
 
 
 
