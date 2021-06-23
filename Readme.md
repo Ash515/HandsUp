@@ -1,19 +1,19 @@
-# Hands Up - Online Crime Portal System.
+# Hands Up - Online Crime Portal System. 
 
 ## Online crime and complain registering portal system maded only for institutions.
 
 ## Introduction
-Online crime portal management system maded for students and staffs at any institution. The main scope of 
-this application is to solve the important problems regarding sexual haressment, 
-misuseness of any properties etc. to the students and staffs. Highly safety way of transmission
-of every complains.
+Online crime portal management system made for students and staff at any institution.
+The main scope of this application is to solve the important problems regarding sexual harassment, misusing of any properties etc. to the students and staff. 
+Highly safe way of transmission of every complaint.
 
 ## Features
-- Used to register all your complains and get the proper solution for your problems.
-- Complains are handled by anonymous person at yours respective **institute** only.
-- Email based user inteface system maded for easy access to student and staffs.
-- **Sent items** and **Recieve items** panel are available to check our complain history and new incoming messages.
+- Used to register all your complaints and get the proper solution for your problems.
+- Complaints are handled by anonymous person at yours respective **institute** only.
+- Email based user interface system made for easy access to students and staff.
+- **Sent items** and **Receiveṣ items** panels are available to check our complaint history and new incoming messages.
 - We are given **Contact Us** menu to know your suggestions and problems regarding this application.
+
 
 ## Tech Stacks
 - Frontend - JavaScript, HTML5, CSS3
@@ -23,9 +23,9 @@ of every complains.
 ## How to Install ?
 Install and run it on your browser.
 1. Download the repository 
-2. Create a MySQl database in PhpMyAdmin.
-3. Create a tables as mentioned in the **server.py** file.
-4. Run the **server.py** file you will be direct to ```http://127.0.0.1:5000/```
+2. Create a MySQL database in PhpMyAdmin.
+3. Create tables as mentioned in the **server.py** file.
+4. Run the **server.py** file, you will be direct to ```http://127.0.0.1:5000/```
 
 ## How to Contribute ?
 
@@ -66,7 +66,10 @@ Thats all about installation and version control with **Git**
 [See More Images](https://github.com/Ash515/HandsUp/tree/master/Image%20Results)
 
 ## Working Video
-[Click here]()
+[Click here](https://drive.google.com/file/d/1Sqv3lSSnk1paGrYgKiupDyeq6pPSON6a/view?usp=sharing)
+
+## Developer ❤
+[Ashwin Kumar Ramaswamy](https://github.com/Ash515)
 
 
 
