@@ -72,7 +72,7 @@ Thats all about installation and version control with **Git**
 [MIT LICENCE](https://github.com/Ash515/HandsUp/blob/master/LICENSE)
 
 ## Developer ❤
-[Ashwin Kumar Ramaswamy](https://github.com/Ash515)
+[Ashwin Kumar Ramaswamy](https://github.com/Ash515).
 
 
 
