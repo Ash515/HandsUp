@@ -1,4 +1,4 @@
-# Hands Up - Online Crime Portal System. 
+# Hands Up - Online Crime Portal System
 
 ## Online crime and complain registering portal system maded only for institutions.
 
